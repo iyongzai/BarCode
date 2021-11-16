@@ -16,4 +16,8 @@ public enum BarCodeError: Error {
     
     static let upcaFormatInvalid = BarCodeError.formatInvalid("The length must be 12 digits")
     static let upcaContentFormatInvalid = BarCodeError.formatInvalid("The length must be 11 digits")
+    
+    static let mikReceiptFormatInvalid = BarCodeError.formatInvalid("The length must be 33 digits")
+    static let mikReceiptContentFormatInvalid = BarCodeError.formatInvalid("The length must be 32 digits")
+
 }

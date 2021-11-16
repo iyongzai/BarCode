@@ -12,8 +12,10 @@ public enum BarCodeType {
     public enum ContentType {
         case ean13(String)
         case upca(String)
+        case mikReceipt(String)
     }
     
     case ean13(String)
     case upca(String)
+    case mikReceipt(String)
 }
