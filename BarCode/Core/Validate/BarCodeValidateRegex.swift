@@ -12,11 +12,13 @@ public enum BarCodeValidateRegex {
     public enum ContentValidateRegex {
         case ean13(String)
         case upca(String)
+        case mikReceipt(String)
     }
     
     case number(String)
     case ean13(String)
     case upca(String)
+    case mikReceipt(String)
 }
 
 public extension BarCodeValidateRegex {
@@ -31,6 +33,8 @@ public extension BarCodeValidateRegex {
             contentAndRegex = (content, "^[0-9]{13}$")
         case .upca(let content):
             contentAndRegex = (content, "^[0-9]{12}$")
+        case .mikReceipt(let content):
+            contentAndRegex = (content, "^[0-9]{33}$")
         }
         
         let predicate = NSPredicate(format: "SELF MATCHES %@", contentAndRegex.regex)
@@ -48,6 +52,8 @@ public extension BarCodeValidateRegex.ContentValidateRegex {
             contentAndRegex = (content, "^[0-9]{12}$")
         case .upca(let content):
             contentAndRegex = (content, "^[0-9]{11}$")
+        case .mikReceipt(let content):
+            contentAndRegex = (content, "^[0-9]{32}$")
         }
         
         let predicate = NSPredicate(format: "SELF MATCHES %@", contentAndRegex.regex)

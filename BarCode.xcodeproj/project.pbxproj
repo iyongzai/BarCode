@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C78C05922743E217005DB0DE /* MikReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05912743E217005DB0DE /* MikReceipt.swift */; };
 		C79D5569274286CD00B76983 /* EX+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D5568274286CD00B76983 /* EX+String.swift */; };
 		C79D556B2742885800B76983 /* BarCodeValidateRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */; };
 		C79D556D2742A68400B76983 /* BarCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556C2742A68400B76983 /* BarCodeProtocol.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C78C05912743E217005DB0DE /* MikReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MikReceipt.swift; sourceTree = "<group>"; };
 		C79D5568274286CD00B76983 /* EX+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX+String.swift"; sourceTree = "<group>"; };
 		C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeValidateRegex.swift; sourceTree = "<group>"; };
 		C79D556C2742A68400B76983 /* BarCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeProtocol.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				CEC1DCCB2742666900B6CAC4 /* EAN.swift */,
 				CEC1DCCD2742667600B6CAC4 /* UPC.swift */,
+				C78C05912743E217005DB0DE /* MikReceipt.swift */,
 			);
 			path = BarCode;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				CEC1DCC62742651100B6CAC4 /* BarCodeError.swift in Sources */,
 				C79D556D2742A68400B76983 /* BarCodeProtocol.swift in Sources */,
 				C79D5569274286CD00B76983 /* EX+String.swift in Sources */,
+				C78C05922743E217005DB0DE /* MikReceipt.swift in Sources */,
 				CEC1DCC4274264C200B6CAC4 /* BarCodeType.swift in Sources */,
 				CEC1DCCE2742667600B6CAC4 /* UPC.swift in Sources */,
 				CEC1DCCC2742666900B6CAC4 /* EAN.swift in Sources */,
