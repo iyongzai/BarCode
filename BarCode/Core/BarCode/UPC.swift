@@ -20,10 +20,10 @@ public struct UPCA: BarCodeProtocol {
     ///  1 check code
     public var checkDigit: String { barCode[11..<12] }
     
-    public static func generate(content: String) throws -> String {
-        let checkDigit = try caculateCheckDigit(content: content)
+    public static func generate(payload: String) throws -> String {
+        let checkDigit = try caculateCheckDigit(payload: payload)
         
-        return "\(content)\(checkDigit)"
+        return "\(payload)\(checkDigit)"
     }
     
     
@@ -43,14 +43,14 @@ public struct UPCA: BarCodeProtocol {
      4、如果余数为0，校验位就是0，否则校验位为10-余数
      */
     
-    public static func caculateCheckDigit(content: String) throws -> Int {
+    public static func caculateCheckDigit(payload: String) throws -> Int {
 
-        guard BarCodeValidateRegex.ContentValidateRegex.upca(content).isRight else {
+        guard BarCodeValidateRegex.ContentValidateRegex.upca(payload).isRight else {
             throw BarCodeError.upcaContentFormatInvalid
         }
         var sum1 = 0
         var sum2 = 0
-        for (i, elem) in content.reversed().enumerated() {
+        for (i, elem) in payload.reversed().enumerated() {
             if i%2 == 0 {
                 sum1 += Int(elem.asciiValue!-48)
             }else{
@@ -65,7 +65,7 @@ public struct UPCA: BarCodeProtocol {
         guard BarCodeValidateRegex.upca(barCode).isRight else {
             throw BarCodeError.upcaFormatInvalid
         }
-        let checkDigit = try caculateCheckDigit(content: barCode[0..<11])
+        let checkDigit = try caculateCheckDigit(payload: barCode[0..<11])
         
         return barCode.last!.asciiValue!-48 == checkDigit
     }
@@ -81,6 +81,6 @@ public struct UPCA: BarCodeProtocol {
         guard BarCodeValidateRegex.ContentValidateRegex.ean13(payload).isRight else {
             throw BarCodeError.upcaContentFormatInvalid
         }
-        self.barCode = try Self.generate(content: payload)
+        self.barCode = try Self.generate(payload: payload)
     }
 }

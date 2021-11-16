@@ -12,8 +12,8 @@ public protocol BarCodeProtocol {
     var payload: String { get }
     var checkDigit: String { get }
     
-    static func generate(content: String) throws -> String
-    static func caculateCheckDigit(content: String) throws -> Int
+    static func generate(payload: String) throws -> String
+    static func caculateCheckDigit(payload: String) throws -> Int
     static func checkDigit(barCode: String) throws -> Bool
     
     init(barCode: String) throws

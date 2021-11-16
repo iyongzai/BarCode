@@ -11,9 +11,9 @@ public struct BarCodeGenerator {
     public static func generate(barCodeType: BarCodeType.ContentType) throws -> String {
         switch barCodeType {
         case .ean13(let content):
-            return try EAN13.generate(content: content)
+            return try EAN13.generate(payload: content)
         case .upca(let content):
-            return try UPCA.generate(content: content)
+            return try UPCA.generate(payload: content)
         }
     }
     public static func checkDigit(barCodeType: BarCodeType) throws -> Bool {
