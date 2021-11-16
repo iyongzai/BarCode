@@ -61,4 +61,17 @@ public struct EAN13: BarCodeProtocol {
         
         return barCode.last!.asciiValue!-48 == checkDigit
     }
+    
+    public init(barCode: String) throws {
+        guard BarCodeValidateRegex.ean13(barCode).isRight else {
+            throw BarCodeError.ean13FormatInvalid
+        }
+        self.barCode = barCode
+    }
+    public init(payload: String) throws {
+        guard BarCodeValidateRegex.ContentValidateRegex.ean13(payload).isRight else {
+            throw BarCodeError.ean13ContentFormatInvalid
+        }
+        self.barCode = try Self.generate(content: payload)
+    }
 }

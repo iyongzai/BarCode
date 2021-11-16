@@ -11,5 +11,5 @@ print("upca=\(upcaBarCode)")
 print("check upca: \((try BarCodeGenerator.checkDigit(barCodeType: .upca(upcaBarCode))))")
 
 
-let upcaobj = try UPCA(upcaBarCode: upcaBarCode)
+let upcaobj = try UPCA(barCode: upcaBarCode)
 print(upcaobj.barCode, upcaobj.payload)

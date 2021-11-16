@@ -71,10 +71,16 @@ public struct UPCA: BarCodeProtocol {
     }
     
     
-    init(upcaBarCode: String) throws {
-        guard BarCodeValidateRegex.upca(upcaBarCode).isRight else {
+    public init(barCode: String) throws {
+        guard BarCodeValidateRegex.upca(barCode).isRight else {
             throw BarCodeError.upcaFormatInvalid
         }
-        self.barCode = upcaBarCode
+        self.barCode = barCode
+    }
+    public init(payload: String) throws {
+        guard BarCodeValidateRegex.ContentValidateRegex.ean13(payload).isRight else {
+            throw BarCodeError.upcaContentFormatInvalid
+        }
+        self.barCode = try Self.generate(content: payload)
     }
 }
