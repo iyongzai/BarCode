@@ -10,7 +10,7 @@ import Foundation
 public struct EAN13: BarCodeProtocol {
     
     public let barCode: String
-    public var content: String { barCode[0..<12] }
+    public var payload: String { barCode[0..<12] }
     public var checkDigit: String { barCode[12..<13] }
     
     public static func generate(content: String) throws -> String {

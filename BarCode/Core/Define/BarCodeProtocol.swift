@@ -9,7 +9,7 @@ import Foundation
 
 public protocol BarCodeProtocol {
     var barCode: String { get }
-    var content: String { get }
+    var payload: String { get }
     var checkDigit: String { get }
     static func generate(content: String) throws -> String
     static func caculateCheckDigit(content: String) throws -> Int

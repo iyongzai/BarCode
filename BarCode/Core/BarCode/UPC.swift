@@ -10,7 +10,7 @@ import Foundation
 public struct UPCA: BarCodeProtocol {
     
     public let barCode: String
-    public var content: String { barCode[0..<11] }
+    public var payload: String { barCode[0..<11] }
     /// 1 system symbol
     public var systemSymbol: String { barCode[0..<1] }
     /// manufacturer codes

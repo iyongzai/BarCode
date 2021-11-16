@@ -12,4 +12,4 @@ print("check upca: \((try BarCodeGenerator.checkDigit(barCodeType: .upca(upcaBar
 
 
 let upcaobj = try UPCA(upcaBarCode: upcaBarCode)
-print(upcaobj.barCode, upcaobj.content)
+print(upcaobj.barCode, upcaobj.payload)
