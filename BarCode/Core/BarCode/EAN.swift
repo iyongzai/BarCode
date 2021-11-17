@@ -14,9 +14,10 @@ public struct EAN13: BarCodeProtocol {
     public var checkDigit: String { barCode[12..<13] }
     
     public static func generate(payload: String) throws -> String {
-        let checkDigit = try caculateCheckDigit(payload: payload)
-        
-        return "\(payload)\(checkDigit)"
+        do {
+            let checkDigit = try caculateCheckDigit(payload: payload)
+            return "\(payload)\(checkDigit)"
+        } catch let err { throw err }
     }
     
     /*
@@ -57,9 +58,10 @@ public struct EAN13: BarCodeProtocol {
         guard BarCodeValidateRegex.ean13(barCode).isRight else {
             throw BarCodeError.ean13FormatInvalid
         }
-        let checkDigit = try caculateCheckDigit(payload: barCode[0..<12])
-        
-        return barCode.last!.asciiValue!-48 == checkDigit
+        do {
+            let checkDigit = try caculateCheckDigit(payload: barCode[0..<12])
+            return barCode.last!.asciiValue!-48 == checkDigit
+        } catch let err { throw err }
     }
     
     public init(barCode: String) throws {
@@ -72,6 +74,8 @@ public struct EAN13: BarCodeProtocol {
         guard BarCodeValidateRegex.ContentValidateRegex.ean13(payload).isRight else {
             throw BarCodeError.ean13ContentFormatInvalid
         }
-        self.barCode = try Self.generate(payload: payload)
+        do {
+            self.barCode = try Self.generate(payload: payload)
+        } catch let err { throw err }
     }
 }

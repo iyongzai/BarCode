@@ -11,6 +11,8 @@ public enum BarCodeError: Error {
     case digitInvalid(String)
     case formatInvalid(String)
     
+    static let checkDigitInvalid = BarCodeError.formatInvalid("The check digit is incorrect")
+    
     static let ean13FormatInvalid = BarCodeError.formatInvalid("The length must be 13 digits")
     static let ean13ContentFormatInvalid = BarCodeError.formatInvalid("The length must be 12 digits")
     
