@@ -27,12 +27,22 @@ fileprivate extension MikReceipt {
 }
 
 public struct MikReceipt: BarCodeProtocol {
-    public var barCode: String
+    public let barCode: String
+    public let payload: String
+    public let checkDigit: String
     
-    public var payload: String { try! Self.caculatePayload(barCode: barCode) }
+    public var transactionTypeNumber: String { payload[0] }
+    public var salesOrGiftReceiptIndicator: String { payload[1] }
+    public var transactionNumber: String { payload[2..<6] }
+    public var storeNumber: String { payload[6..<10] }
+    public var terminalNumber: String { payload[10..<13] }
+    public var operatorNumber: String { payload[13..<21] }
+    public var julianDayYYJJJ: String { payload[21..<26] }
+    public var transactionTimeHHMM: String { payload[26..<30] }
+    public var tenderType: String { payload[30] }
+    public var loyaltyIndicator: String { payload[31] }
     
-    public var checkDigit: String { barCode[2] }
-    
+
     
     ///
     /// English:
@@ -56,28 +66,30 @@ public struct MikReceipt: BarCodeProtocol {
     /// - Parameter payload: payload infomation
     /// - Returns: bar code
     public static func generate(payload: String) throws -> String {
-        let checkDigit = try caculateCheckDigit(payload: payload)
-        //
-        // step 1: original infomation
-        // eg: 890025105605100000100213150449304
-        let originalInfoStr = "\(payload)\(checkDigit)"
-        // Original Transaction Information --> Re-Ordered --> Translated
-        // step 2: Re-Ordered
-        // eg: 894309440153210100000105605105020
-        // var reOrderedStr = ""
-        // for i in 0..<33 { reOrderedStr += originalInfoStr[columnMap[i+1]!-1] }
-        // step 3: Translated
-        // eg: 898410881564951511111516216516191
-        var translatedStr = ""
-        for i in 0..<33 {
-            let c = originalInfoStr[columnMap[i+1]!-1]
-            if i == 0 || i == 1 {
-                translatedStr += c
-            }else{
-                translatedStr += "\(valueMap[Int(c)!]!)"
+        do {
+            let checkDigit = try caculateCheckDigit(payload: payload)
+            //
+            // step 1: original infomation
+            // eg: 890025105605100000100213150449304
+            let originalInfoStr = "\(payload)\(checkDigit)"
+            // Original Transaction Information --> Re-Ordered --> Translated
+            // step 2: Re-Ordered
+            // eg: 894309440153210100000105605105020
+            // var reOrderedStr = ""
+            // for i in 0..<33 { reOrderedStr += originalInfoStr[columnMap[i+1]!-1] }
+            // step 3: Translated
+            // eg: 898410881564951511111516216516191
+            var translatedStr = ""
+            for i in 0..<33 {
+                let c = originalInfoStr[columnMap[i+1]!-1]
+                if i == 0 || i == 1 {
+                    translatedStr += c
+                }else{
+                    translatedStr += "\(valueMap[Int(c)!]!)"
+                }
             }
-        }
-        return translatedStr
+            return translatedStr
+        } catch let err { throw err }
     }
     
     /*
@@ -143,19 +155,23 @@ public struct MikReceipt: BarCodeProtocol {
         return translatedStr
     }
     public static func caculatePayload(barCode: String) throws -> String {
-        let translatedStr = try caculateOriginalInfo(barCode: barCode)
-        return translatedStr[0..<32]
+        do {
+            let translatedStr = try caculateOriginalInfo(barCode: barCode)
+            return translatedStr[0..<32]
+        } catch let err { throw err }
     }
     
     public static func checkDigit(barCode: String) throws -> Bool {
         guard BarCodeValidateRegex.mikReceipt(barCode).isRight else {
             throw BarCodeError.mikReceiptFormatInvalid
         }
-        let originalInfo = try caculateOriginalInfo(barCode: barCode)
-        let payload = originalInfo[0..<32]
-        let checkDigit = try caculateCheckDigit(payload: payload)
-        
-        return originalInfo.last!.asciiValue!-48 == checkDigit
+        do {
+            let originalInfo = try caculateOriginalInfo(barCode: barCode)
+            let payload = originalInfo[0..<32]
+            let checkDigit = try caculateCheckDigit(payload: payload)
+            
+            return originalInfo.last!.asciiValue!-48 == checkDigit
+        } catch let err { throw err }
     }
     
     
@@ -163,13 +179,28 @@ public struct MikReceipt: BarCodeProtocol {
         guard BarCodeValidateRegex.mikReceipt(barCode).isRight else {
             throw BarCodeError.mikReceiptFormatInvalid
         }
-        self.barCode = barCode
+        do {
+            let originalInfo = try Self.caculateOriginalInfo(barCode: barCode)
+            let payload = originalInfo[0..<32]
+            let checkDigitForPayload = try Self.caculateCheckDigit(payload: payload)
+            
+            guard originalInfo.last!.asciiValue!-48 == checkDigitForPayload else {
+                throw BarCodeError.checkDigitInvalid
+            }
+            self.barCode = barCode
+            self.payload = payload
+            self.checkDigit = "\(checkDigitForPayload)"
+        } catch let err { throw err }
     }
     public init(payload: String) throws {
         guard BarCodeValidateRegex.ContentValidateRegex.mikReceipt(payload).isRight else {
             throw BarCodeError.mikReceiptContentFormatInvalid
         }
-        self.barCode = try Self.generate(payload: payload)
+        do {
+            self.barCode = try Self.generate(payload: payload)
+            self.payload = payload
+            self.checkDigit = "\(try Self.caculateCheckDigit(payload: payload))"
+        } catch let err { throw err }
     }
     
 }

@@ -16,7 +16,13 @@
 
 
 let receiptContent = "89002510560510000010021315044930"
-let receiptBarCode = try BarCodeGenerator.generate(barCodeType: .mikReceipt(receiptContent))
-print("receipt bar code: \(receiptBarCode)")
-print("check receipt: \((try BarCodeGenerator.checkDigit(barCodeType: .mikReceipt(receiptBarCode))))")
-print("receipt payload: \(try MikReceipt.caculatePayload(barCode: receiptBarCode))")
+do {
+    let receiptBarCode = try BarCodeGenerator.generate(barCodeType: .mikReceipt(receiptContent))
+    print("receipt bar code: \(receiptBarCode)")
+    print("check receipt: \((try BarCodeGenerator.checkDigit(barCodeType: .mikReceipt(receiptBarCode))))")
+    print("receipt payload: \(try MikReceipt.caculatePayload(barCode: receiptBarCode))")
+    let mikReceit = try MikReceipt(barCode: receiptBarCode)
+    print(mikReceit.storeNumber)
+} catch let err {
+    print(err)
+}
