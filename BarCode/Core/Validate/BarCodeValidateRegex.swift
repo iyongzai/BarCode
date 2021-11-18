@@ -26,7 +26,7 @@ public extension BarCodeValidateRegex {
         
         switch self {
         case .number(let content):
-            contentAndRegex = (content, "\\d")
+            contentAndRegex = (content, "^[0-9]+$")
         case .ean13(let content):
             contentAndRegex = (content, "^[0-9]{13}$")
         case .upca(let content):
