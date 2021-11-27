@@ -11,12 +11,14 @@ public enum BarCodeError: Error {
     case digitInvalid(String)
     case formatInvalid(String)
     
-    static let checkDigitInvalid = BarCodeError.digitInvalid("The check digit is incorrect")
-    static let notNumber = BarCodeError.formatInvalid("The string is not a numeric type")
+    static var checkDigitInvalid: BarCodeError          { BarCodeError.digitInvalid("The check digit is incorrect") }
+    static var notNumber: BarCodeError                  { BarCodeError.formatInvalid("The string is not a numeric type") }
     
-    static let ean13FormatInvalid = BarCodeError.formatInvalid("The length must be 13 digits")
-    static let ean13ContentFormatInvalid = BarCodeError.formatInvalid("The length must be 12 digits")
+    static var ean13FormatInvalid: BarCodeError         { BarCodeError.formatInvalid("The length must be 13 digits") }
+    static var ean13ContentFormatInvalid: BarCodeError  { BarCodeError.formatInvalid("The length must be 12 digits") }
+    static var ean8FormatInvalid: BarCodeError          { BarCodeError.formatInvalid("The length must be 8 digits") }
+    static var ean8ContentFormatInvalid: BarCodeError   { BarCodeError.formatInvalid("The length must be 7 digits") }
     
-    static let upcaFormatInvalid = BarCodeError.formatInvalid("The length must be 12 digits")
-    static let upcaContentFormatInvalid = BarCodeError.formatInvalid("The length must be 11 digits")
+    static var upcaFormatInvalid: BarCodeError          { BarCodeError.formatInvalid("The length must be 12 digits") }
+    static var upcaContentFormatInvalid: BarCodeError   { BarCodeError.formatInvalid("The length must be 11 digits") }
 }
