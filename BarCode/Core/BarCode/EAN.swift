@@ -98,6 +98,8 @@ public struct EAN8: BarCodeProtocol {
     
     public var payload: String { barCode[0..<7] }
     
+    public var gs1Prefix: String { barCode[0..<3] }
+    
     public var checkDigit: String { String(barCode.last!) }
     
     public static func generate(payload: String) throws -> String {
