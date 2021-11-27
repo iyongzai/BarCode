@@ -11,14 +11,14 @@ public struct UPCA: BarCodeProtocol {
     
     public let barCode: String
     public var payload: String { barCode[0..<11] }
-    /// 1 system symbol
+    /// 制码 system symbol(1 digits)
     public var systemSymbol: String { barCode[0..<1] }
-    /// manufacturer codes
-    public var manufacturerCodes: String { barCode[1..<6] }
-    /// 5 product codes
+    /// 厂商编号 manufacturer codes(5 digits)
+    public var mfgCodes: String { barCode[1..<6] }
+    /// 产品编号 product codes( 5 digits)
     public var productCodes: String { barCode[6..<11] }
-    ///  1 check code
-    public var checkDigit: String { barCode[11..<12] }
+    /// 校验码 check code(1 digits)
+    public var checkDigit: String { String(barCode.last!) }
     
     public static func generate(payload: String) throws -> String {
         do {

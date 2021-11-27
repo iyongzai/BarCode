@@ -5,14 +5,23 @@
 //  Created by ayong on 2021/11/15.
 //
 
+// reference: https://en.wikipedia.org/wiki/International_Article_Number
+
 import Foundation
 
 public struct EAN13: BarCodeProtocol {
     
     public let barCode: String
     public var payload: String { barCode[0..<12] }
-    public var checkDigit: String { barCode[12..<13] }
-    
+    /// 国家、地区、组织等 代码代号 GS1 prefix (3 digits)
+    public var gs1Prefix: String { barCode[0..<3] }
+    /// 厂商编号 manufacturer codes(variable length)
+    //public var mfgCodes: String { barCode[..<] }
+    /// 产品编号 product codes(variable length)
+    //public var productCodes: String { barCode[..<11] }
+    /// 校验码 check code(1 digit)
+    public var checkDigit: String { String(barCode.last!) }
+
     public static func generate(payload: String) throws -> String {
         do {
             let checkDigit = try caculateCheckDigit(payload: payload)
