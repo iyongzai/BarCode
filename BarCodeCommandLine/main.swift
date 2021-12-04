@@ -1,3 +1,10 @@
+//
+//  main.swift
+//  BarCodeCommandLine
+//
+//  Created by zhiyong yin on 2021/12/4.
+//
+
 
 let ean13Content = "938930748560"
 let ean13BarCode = try BarCodeGenerator.generate(barCodeType: .ean13(ean13Content))
