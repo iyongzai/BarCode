@@ -10,6 +10,7 @@ import Foundation
 public enum BarCodeError: Error {
     case digitInvalid(String)
     case formatInvalid(String)
+    case dataError(String)
     
     static var checkDigitInvalid: BarCodeError          { BarCodeError.digitInvalid("The check digit is incorrect") }
     static var notNumber: BarCodeError                  { BarCodeError.formatInvalid("The string is not a numeric type") }

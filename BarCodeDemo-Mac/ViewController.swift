@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  BarCodeDemo
+//  BarCodeDemo-Mac
 //
 //  Created by zhiyong yin on 2021/12/4.
 //
