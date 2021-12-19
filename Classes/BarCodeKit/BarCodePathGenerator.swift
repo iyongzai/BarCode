@@ -7,42 +7,48 @@
 
 import CoreGraphics
 import Foundation
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
+
+
+public struct BarCodeImageSize {
+    /// standard bar's width and height. 标准尺寸时的条宽(0.936 = 0.013/(1/72.0))和条高(73.44 = 1.02/(1/72.0))
+    static let upca = BarCodeImageSize(barWidth: 0.936, barHeight: 73.44)
+    var barWidth: CGFloat
+    var barHeight: CGFloat
+    var quietZoneWidth: CGFloat { 9.5*barWidth }
+    var scale: CGFloat { barWidth/BarCodeImageSize.upca.barWidth }
+    
+    public init(barWidth: CGFloat, barHeight: CGFloat) {
+        self.barWidth = barWidth
+        self.barHeight = barHeight
+    }
+    
+    public func scale(_ scale: CGFloat) -> BarCodeImageSize {
+        return BarCodeImageSize(barWidth: self.barWidth*scale, barHeight: self.barHeight*scale)
+    }
+}
 
 class BarCodePathGenerator {
-    
-    struct BarSize {
-        /// standard bar's width and height. 标准尺寸时的条宽(0.936 = 0.013/(1/72.0))和条高(73.44 = 1.02/(1/72.0))
-        static let upca = try! BarSize(barWidth: 0.936, barHeight: 73.44)
-        var barWidth: CGFloat
-        var barHeight: CGFloat
-        var quietZoneWidth: CGFloat { 9.5*barWidth }
-        var scale: CGFloat { barWidth/BarSize.upca.barWidth }
-        
-        init(barWidth: CGFloat, barHeight: CGFloat) throws {
-            guard barHeight >= 0.8*barHeight, barHeight <= 2*barHeight else {
-                throw BarCodeError.dataError("The height of the barcode must be between 80%~200% of the standard height")
-            }
-            self.barWidth = barWidth
-            self.barHeight = barHeight
-        }
-    }
     
     /// generate path
     /// - Parameters:
     ///   - barcode: barcode
     ///   - size: bar width, bar height.
     /// - Returns: path
-    static func generate(barcode: BarCodeType, size: BarSize = BarSize.upca) -> CGPath? {
+    static func generate(barcode: BarCodeType, size: BarCodeImageSize = BarCodeImageSize.upca, font: BarCodeFont) -> CGPath? {
         switch barcode {
         case .ean13(_):
             return nil
         case .upca(let upca):
-            return try? generateUPCA(upca, size: size)
+            return try? generateUPCA(upca, size: size, font: font)
         }
     }
     
-    fileprivate static func generateUPCA(_ upca: String, size: BarSize) throws -> CGPath {
+    fileprivate static func generateUPCA(_ upca: String, size: BarCodeImageSize, font: BarCodeFont) throws -> CGPath {
         
         guard BarCodeValidateRegex.upca(upca).isRight else {
             throw BarCodeError.upcaFormatInvalid
@@ -73,7 +79,7 @@ class BarCodePathGenerator {
                 ? try! EANBarCodeEncoding.oddEncoding(for: UInt8(String(elem))!)
                 : try! EANBarCodeEncoding.evenCEncoding(for: UInt8(String(elem))!)
             }()
-            for (j, barOrSpace) in encodings.enumerated() {
+            for (_, barOrSpace) in encodings.enumerated() {
                 x += 1*unit
                 if barOrSpace {
                     // 12+CGFloat(7*i)+CGFloat(j)
@@ -107,42 +113,80 @@ class BarCodePathGenerator {
 //        path.move(to: CGPoint(x: x, y: 0))
 
         // human-readable interpretation
+        // 字体大小 font size
+        let stdFontSize: CGFloat = 7*size.scale
+        defer {
+            x += (size.quietZoneWidth)
+            path.move(to: CGPoint(x: x, y: guardLineHeight+stdFontSize))
+        }
         // text x
-        // first number
-        let fontSize: CGFloat = 7*size.scale
-        var textX: CGFloat = (size.quietZoneWidth)-fontSize
-        // 调整字间距
+        // 调整字间距 text's space
         var number = 2*Int(size.scale)
         let num = CFNumberCreate(kCFAllocatorDefault, .sInt8Type, &number)
-        //[attributedString addAttribute:(id)kCTKernAttributeName value:(__bridge id)num range:NSMakeRange(0,[attributedString length])];
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: .ultraLight),
+        // 字体 font
+        let exfont: EXFont? = {
+#if os(iOS)
+            switch font {
+            case .`default`:
+                return UIFont.systemFont(ofSize: stdFontSize, weight: .ultraLight)
+            case .scaleWithFontName(let name):
+                let ft =  UIFont(name: name, size: stdFontSize)
+                assert(ft != nil, "Unavailable font name")
+                return ft
+            case .font(let ft):
+                return ft
+            case .none:
+                return nil
+            }
+#elseif os(macOS)
+            switch font {
+            case .`default`:
+                return NSFont.systemFont(ofSize: stdFontSize, weight: .ultraLight)
+            case .scaleWithFontName(let name):
+                let ft =  NSFont(name: name, size: stdFontSize)
+                assert(ft != nil, "Unavailable font name")
+                return ft
+            case .font(let ft):
+                return ft
+            case .none:
+                return nil
+            }
+#endif
+        }()
+        guard let showFont = exfont else {
+            return path
+        }
+        let attributes = [NSAttributedString.Key.font: showFont,
                           NSAttributedString.Key(rawValue: kCTKernAttributeName as String): num! as CFNumber]
+        // first number
+        var textX: CGFloat = (size.quietZoneWidth)-stdFontSize
+        
         var attributedString = NSMutableAttributedString(string: upca[0], attributes: attributes)
-        var charPaths = attributedString.characterPaths(position: CGPoint(x: textX, y: dataBarHeight))
-        charPaths.forEach { path.addPath($0) }
+        var charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
+        path.addPath(charsPath)
         
         // left data
-        textX = 20*unit
+        textX = 19.5*unit
         attributedString = NSMutableAttributedString(string: upca[1..<6], attributes: attributes)
-        charPaths = attributedString.characterPaths(position: CGPoint(x: textX, y: guardLineHeight+fontSize/2))
-        charPaths.forEach { path.addPath($0) }
+        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight+size.scale))
+        var transform = CGAffineTransform(translationX: (34*unit-charsPath.boundingBox.width)/2, y: 0)
+        path.addPath(charsPath, transform: transform)
         
         // right data
-        textX = 60*unit
+        textX = 59.5*unit
         attributedString = NSMutableAttributedString(string: upca[6..<11], attributes: attributes)
-        charPaths = attributedString.characterPaths(position: CGPoint(x: textX, y: guardLineHeight+fontSize/2))
-        charPaths.forEach { path.addPath($0) }
+        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight+size.barWidth))
+        transform = CGAffineTransform(translationX: (34*unit-charsPath.boundingBox.width)/2, y: 0)
+        path.addPath(charsPath, transform: transform)
 
         
         // last number
         textX = x
-        attributedString = NSMutableAttributedString(string: upca[0], attributes: attributes)
-        charPaths = attributedString.characterPaths(position: CGPoint(x: textX, y: dataBarHeight))
-        charPaths.forEach { path.addPath($0) }
+        attributedString = NSMutableAttributedString(string: upca[11], attributes: attributes)
+        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
+        path.addPath(charsPath)
         
         
-        x += (size.quietZoneWidth)
-        path.move(to: CGPoint(x: x, y: guardLineHeight+fontSize))
         
         return path
     }

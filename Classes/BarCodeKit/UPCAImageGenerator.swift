@@ -6,30 +6,31 @@
 //
 
 import Foundation
-#if canImport(UIKit)
+#if os(iOS)
 import UIKit
-#elseif canImport(Cocoa)
-import Cocoa
+#elseif os(macOS)
+import AppKit
 #endif
 
 
-public class UPCAImageGenerator {
+public class UPCAImageGenerator {}
+
+#if os(iOS)
+public extension UPCAImageGenerator {
     @available(iOS 4.0, *)
-    public static func generate(upca: String) -> UIImage? {
+    static func generate(upca: String, size: BarCodeImageSize, backgroundColor: UIColor = .white, font: BarCodeFont) -> UIImage? {
         
-        let size = BarCodePathGenerator.BarSize.upca
-        let path = UIBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upca(upca), size: size)!)
+        let path = UIBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upca(upca), size: size, font: font)!)
         path.lineWidth = size.barWidth
 
-        
-        UIGraphicsBeginImageContextWithOptions(path.bounds.size, false, UIScreen.main.scale)
+        let imageSize = path.bounds.size
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, UIScreen.main.scale)
         //this gets the graphic context
         let context = UIGraphicsGetCurrentContext()
         
         //you can stroke and/or fill
-        context?.setLineWidth(path.lineWidth)
-        context?.setStrokeColor(UIColor.black.cgColor)
-        context?.strokePath()
+        context?.setFillColor(backgroundColor.cgColor)
+        context?.fill(CGRect(origin: .zero, size: imageSize))
         path.stroke()
         
         //now get the image from the context
@@ -39,15 +40,31 @@ public class UPCAImageGenerator {
         
         return bezierImage
     }
-    
-    
 }
 
+#elseif os(macOS)
+public extension UPCAImageGenerator {
+    @available(macOS 8.0, *)
+    static func generate(upca: String, size: BarCodeImageSize, backgroundColor: NSColor = .white, font: BarCodeFont) -> NSImage {
+        
+        let path = NSBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upca(upca), size: size, font: font)!)
+        path.lineWidth = size.barWidth
+        
+        let canvas = NSImage(size: path.bounds.size, flipped: true) { rect in
+            backgroundColor.setFill()
+            rect.fill()
+            path.stroke()
+            return true
+        }
+        
+//        do {
+//            try canvas.save(to: "\(NSHomeDirectory())/Downloads/drawPath.png")
+//        } catch let error {
+//            print(error)
+//        }
+                
+        return canvas
+    }
+}
+#endif
 
-//extension UPCAImageGenerator {
-//    @available(macOS 8.0, *)
-//    public static func generate(upca: String) -> NSImage? {
-//
-//        return nil
-//    }
-//}
