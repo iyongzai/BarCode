@@ -11,6 +11,7 @@ import Foundation
 public struct UPCA: EAN {
     
     public let barCode: String
+    /// 11 digits
     public var payload: String { barCode[0..<11] }
     /// 制码 system symbol(1 digits)
     public var systemSymbol: String { barCode[0..<1] }
@@ -80,10 +81,17 @@ public struct UPCA: EAN {
         guard BarCodeValidateRegex.upca(barCode).isRight else {
             throw BarCodeError.upcaFormatInvalid
         }
-        self.barCode = barCode
+        do {
+            guard try Self.checkDigit(barCode: barCode) else {
+                throw BarCodeError.checkDigitInvalid
+            }
+            self.barCode = barCode
+        } catch let err {
+            throw err
+        }
     }
     public init(payload: String) throws {
-        guard BarCodeValidateRegex.ContentValidateRegex.ean13(payload).isRight else {
+        guard BarCodeValidateRegex.ContentValidateRegex.upca(payload).isRight else {
             throw BarCodeError.upcaContentFormatInvalid
         }
         do {

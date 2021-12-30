@@ -11,6 +11,7 @@ import Foundation
 
 
 public protocol EAN {
+    var barCode: String { get }
     var payload: String { get }
     var checkDigit: String { get }
 
@@ -37,36 +38,36 @@ public protocol EAN {
  | 9        | 0001011 | 0010111 | 1110100 |
  */
 public enum EANBarCodeEncoding {
-    public static func oddEncoding(for number: UInt8) throws -> [Bool] {
+    public static func oddEncoding(for number: UInt8) throws -> UInt8 {
         guard number < 10 else {
             throw BarCodeError.dataError("Value must be less than 10")
         }
         return allEncodings[number]!.odd
     }
-    public static func evenBEncoding(for number: UInt8) throws -> [Bool] {
+    public static func evenBEncoding(for number: UInt8) throws -> UInt8 {
         guard number < 10 else {
             throw BarCodeError.dataError("Value must be less than 10")
         }
         return allEncodings[number]!.evenB
     }
-    public static func evenCEncoding(for number: UInt8) throws -> [Bool] {
+    public static func evenCEncoding(for number: UInt8) throws -> UInt8 {
         guard number < 10 else {
             throw BarCodeError.dataError("Value must be less than 10")
         }
         return allEncodings[number]!.evenC
     }
     
-    public typealias EANBarCodeEncodingsTuple = (odd: [Bool], evenB: [Bool], evenC: [Bool])
+    public typealias EANBarCodeEncodingsTuple = (odd: UInt8, evenB: UInt8, evenC: UInt8)
     public static var allEncodings: [UInt8 : EANBarCodeEncodingsTuple] {
-        [0 : ([false,false,false,true,true,false,true], [false,true,false,false,true,true,true], [true,true,true,false,false,true,false]),
-         1 : ([false,false,true,true,false,false,true], [false,true,true,false,false,true,true], [true,true,false,false,true,true,false]),
-         2 : ([false,false,true,false,false,true,true], [false,false,true,true,false,true,true], [true,true,false,true,true,false,false]),
-         3 : ([false,true,true,true,true,false,true], [false,true,false,false,false,false,true], [true,false,false,false,false,true,false]),
-         4 : ([false,true,false,false,false,true,true], [false,false,true,true,true,false,true], [true,false,true,true,true,false,false]),
-         5 : ([false,true,true,false,false,false,true], [false,true,true,true,false,false,true], [true,false,false,true,true,true,false]),
-         6 : ([false,true,false,true,true,true,true], [false,false,false,false,true,false,true], [true,false,true,false,false,false,false]),
-         7 : ([false,true,true,true,false,true,true], [false,false,true,false,false,false,true], [true,false,false,false,true,false,false]),
-         8 : ([false,true,true,false,true,true,true], [false,false,false,true,false,false,true], [true,false,false,true,false,false,false]),
-         9 : ([false,false,false,true,false,true,true], [false,false,true,false,true,true,true], [true,true,true,false,true,false,false])]
+        [0 : (0b0001101, 0b0100111, 0b1110010),
+         1 : (0b0011001, 0b0110011, 0b1100110),
+         2 : (0b0010011, 0b0011011, 0b1101100),
+         3 : (0b0111101, 0b0100001, 0b1000010),
+         4 : (0b0100011, 0b0011101, 0b1011100),
+         5 : (0b0110001, 0b0111001, 0b1001110),
+         6 : (0b0101111, 0b0000101, 0b1010000),
+         7 : (0b0111011, 0b0010001, 0b1000100),
+         8 : (0b0110111, 0b0001001, 0b1001000),
+         9 : (0b0001011, 0b0010111, 0b1110100)]
     }
 }

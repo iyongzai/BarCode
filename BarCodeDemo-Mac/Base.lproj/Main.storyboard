@@ -707,30 +707,41 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="BarCodeDemo_Mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="632"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Miz-S0-ayf">
-                                <rect key="frame" x="40" y="40" width="400" height="400"/>
+                                <rect key="frame" x="40" y="166" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="4Gb-JW-nSW"/>
+                                    <constraint firstAttribute="width" constant="300" id="4Gb-JW-nSW"/>
                                     <constraint firstAttribute="width" secondItem="Miz-S0-ayf" secondAttribute="height" multiplier="1:1" id="euG-kp-DaM"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5e7-U3-Gw2"/>
                             </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-AN-chL">
+                                <rect key="frame" x="360" y="166" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="vWR-is-RFn"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="EFa-q7-I0U"/>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Miz-S0-ayf" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="O8P-yH-gzr"/>
+                            <constraint firstItem="Zaq-AN-chL" firstAttribute="centerY" secondItem="Miz-S0-ayf" secondAttribute="centerY" id="Fr4-Fq-qtm"/>
+                            <constraint firstItem="Zaq-AN-chL" firstAttribute="leading" secondItem="Miz-S0-ayf" secondAttribute="trailing" constant="20" id="HYi-qF-A8R"/>
+                            <constraint firstItem="Zaq-AN-chL" firstAttribute="width" secondItem="Zaq-AN-chL" secondAttribute="height" multiplier="1:1" id="KpP-TF-wg5"/>
                             <constraint firstItem="Miz-S0-ayf" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="bkZ-YH-6Zs"/>
+                            <constraint firstItem="Miz-S0-ayf" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="40" id="inv-si-Bl6"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="Miz-S0-ayf" id="A1s-UO-w35"/>
+                        <outlet property="upcaImageView" destination="Miz-S0-ayf" id="N4H-H6-1ag"/>
+                        <outlet property="upceImageView" destination="Zaq-AN-chL" id="U70-JE-vaN"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="815"/>
+            <point key="canvasLocation" x="179" y="891"/>
         </scene>
     </scenes>
 </document>

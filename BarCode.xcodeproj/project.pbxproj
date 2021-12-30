@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		C74805DA275BAE6E00740288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805D9275BAE6E00740288 /* AppDelegate.swift */; };
 		C74805DC275BAE6E00740288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805DB275BAE6E00740288 /* SceneDelegate.swift */; };
-		C74805DE275BAE6E00740288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805DD275BAE6E00740288 /* ViewController.swift */; };
+		C74805DE275BAE6E00740288 /* UPCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805DD275BAE6E00740288 /* UPCVC.swift */; };
 		C74805E1275BAE6E00740288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74805DF275BAE6E00740288 /* Main.storyboard */; };
 		C74805E3275BAE7100740288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74805E2275BAE7100740288 /* Assets.xcassets */; };
 		C74805E6275BAE7100740288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74805E4275BAE7100740288 /* LaunchScreen.storyboard */; };
 		C74805EB275BAE9400740288 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC92742661D00B6CAC4 /* Luhn.swift */; };
 		C74805EC275BAE9400740288 /* BarCodeValidateRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */; };
-		C74805ED275BAE9400740288 /* UPCAImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7CF5F275BAC7B00AA4D41 /* UPCAImageGenerator.swift */; };
+		C74805ED275BAE9400740288 /* UPCImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */; };
 		C74805EE275BAE9400740288 /* UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05B1275B49FF005DB0DE /* UPCA.swift */; };
 		C74805EF275BAE9400740288 /* BarCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */; };
 		C74805F0275BAE9400740288 /* BarCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */; };
@@ -27,7 +27,7 @@
 		C74805F6275BAE9400740288 /* GS1Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C059627493BF8005DB0DE /* GS1Code.swift */; };
 		C74805F7275BAE9400740288 /* EAN8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AF275B4986005DB0DE /* EAN8.swift */; };
 		C74805F8275BAE9400740288 /* BarCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */; };
-		C7520FA3275E46DE00798D56 /* UPCAImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7CF5F275BAC7B00AA4D41 /* UPCAImageGenerator.swift */; };
+		C7520FA3275E46DE00798D56 /* UPCImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */; };
 		C7520FA4275E4D6600798D56 /* BarCodePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */; };
 		C7520FA5275E4DEA00798D56 /* BarCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */; };
 		C7520FA6275E4DEA00798D56 /* BarCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */; };
@@ -57,6 +57,22 @@
 		C7B3DC96275D01FA00A94900 /* EX-String-BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DC95275D01FA00A94900 /* EX-String-BezierPath.swift */; };
 		C7D6C151276F24E300762CD1 /* BarCodeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6C150276F24E300762CD1 /* BarCodeFont.swift */; };
 		C7D6C152276F24E300762CD1 /* BarCodeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6C150276F24E300762CD1 /* BarCodeFont.swift */; };
+		C7D6C154277DEAF000762CD1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6C153277DEAF000762CD1 /* HomeVC.swift */; };
+		CE4269372779B8CC00227849 /* UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4269362779B8CC00227849 /* UPCE.swift */; };
+		CE4269382779B8CC00227849 /* UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4269362779B8CC00227849 /* UPCE.swift */; };
+		CE426939277AD53F00227849 /* BarCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */; };
+		CE42693A277AD56200227849 /* BarCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */; };
+		CE42693B277AD59700227849 /* EAN13.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AD275B4962005DB0DE /* EAN13.swift */; };
+		CE42693C277AD59F00227849 /* BarCodeValidateRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */; };
+		CE42693D277AD5B100227849 /* EAN.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCCB2742666900B6CAC4 /* EAN.swift */; };
+		CE42693E277AD5DC00227849 /* EX-String-Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D5568274286CD00B76983 /* EX-String-Subscript.swift */; };
+		CE42693F277AD5E900227849 /* BarCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */; };
+		CE426940277AD5FF00227849 /* UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05B1275B49FF005DB0DE /* UPCA.swift */; };
+		CE426941277C401F00227849 /* UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4269362779B8CC00227849 /* UPCE.swift */; };
+		CE426943277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */; };
+		CE426944277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */; };
+		CE426946277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */; };
+		CE426947277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,7 +91,7 @@
 		C74805D7275BAE6E00740288 /* BarCodeDemo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BarCodeDemo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74805D9275BAE6E00740288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C74805DB275BAE6E00740288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C74805DD275BAE6E00740288 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C74805DD275BAE6E00740288 /* UPCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCVC.swift; sourceTree = "<group>"; };
 		C74805E0275BAE6E00740288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C74805E2275BAE7100740288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C74805E5275BAE7100740288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,9 +118,13 @@
 		C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeValidateRegex.swift; sourceTree = "<group>"; };
 		C79D556C2742A68400B76983 /* BarCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeProtocol.swift; sourceTree = "<group>"; };
 		C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeGenerator.swift; sourceTree = "<group>"; };
-		C7A7CF5F275BAC7B00AA4D41 /* UPCAImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCAImageGenerator.swift; sourceTree = "<group>"; };
+		C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCImageGenerator.swift; sourceTree = "<group>"; };
 		C7B3DC95275D01FA00A94900 /* EX-String-BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX-String-BezierPath.swift"; sourceTree = "<group>"; };
 		C7D6C150276F24E300762CD1 /* BarCodeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeFont.swift; sourceTree = "<group>"; };
+		C7D6C153277DEAF000762CD1 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CE4269362779B8CC00227849 /* UPCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCE.swift; sourceTree = "<group>"; };
+		CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarCodePathGenerator-UPCA.swift"; sourceTree = "<group>"; };
+		CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarCodePathGenerator-UPCE.swift"; sourceTree = "<group>"; };
 		CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeType.swift; sourceTree = "<group>"; };
 		CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeError.swift; sourceTree = "<group>"; };
 		CEC1DCC92742661D00B6CAC4 /* Luhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Luhn.swift; sourceTree = "<group>"; };
@@ -142,7 +162,8 @@
 			children = (
 				C74805D9275BAE6E00740288 /* AppDelegate.swift */,
 				C74805DB275BAE6E00740288 /* SceneDelegate.swift */,
-				C74805DD275BAE6E00740288 /* ViewController.swift */,
+				C7D6C153277DEAF000762CD1 /* HomeVC.swift */,
+				C74805DD275BAE6E00740288 /* UPCVC.swift */,
 				C74805DF275BAE6E00740288 /* Main.storyboard */,
 				C74805E2275BAE7100740288 /* Assets.xcassets */,
 				C74805E4275BAE7100740288 /* LaunchScreen.storyboard */,
@@ -193,9 +214,11 @@
 			isa = PBXGroup;
 			children = (
 				C7B3DC97275D023E00A94900 /* EX */,
-				C7A7CF5F275BAC7B00AA4D41 /* UPCAImageGenerator.swift */,
+				C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */,
 				C78BFABF275BB83700CA7F5B /* BarCodeImageView.swift */,
 				C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */,
+				CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */,
+				CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */,
 				C7D6C150276F24E300762CD1 /* BarCodeFont.swift */,
 			);
 			path = BarCodeKit;
@@ -220,6 +243,7 @@
 				C78C05AF275B4986005DB0DE /* EAN8.swift */,
 				CEC1DCCD2742667600B6CAC4 /* UPC.swift */,
 				C78C05B1275B49FF005DB0DE /* UPCA.swift */,
+				CE4269362779B8CC00227849 /* UPCE.swift */,
 				C78C059627493BF8005DB0DE /* GS1Code.swift */,
 			);
 			path = BarCode;
@@ -411,23 +435,27 @@
 				C74805F7275BAE9400740288 /* EAN8.swift in Sources */,
 				C74805EE275BAE9400740288 /* UPCA.swift in Sources */,
 				C74805EB275BAE9400740288 /* Luhn.swift in Sources */,
+				CE426943277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */,
 				C74805F4275BAE9400740288 /* EAN13.swift in Sources */,
 				C7B3DC96275D01FA00A94900 /* EX-String-BezierPath.swift in Sources */,
 				C7520FB72764C4B100798D56 /* EX-CGPath.swift in Sources */,
-				C74805DE275BAE6E00740288 /* ViewController.swift in Sources */,
+				C74805DE275BAE6E00740288 /* UPCVC.swift in Sources */,
 				C74805F2275BAE9400740288 /* EAN.swift in Sources */,
 				C78BFAC2275BC00D00CA7F5B /* BarCodePathGenerator.swift in Sources */,
 				C74805F8275BAE9400740288 /* BarCodeError.swift in Sources */,
 				C7D6C151276F24E300762CD1 /* BarCodeFont.swift in Sources */,
+				CE426946277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */,
 				C74805F1275BAE9400740288 /* BarCodeProtocol.swift in Sources */,
 				C74805F6275BAE9400740288 /* GS1Code.swift in Sources */,
 				C74805EC275BAE9400740288 /* BarCodeValidateRegex.swift in Sources */,
+				C7D6C154277DEAF000762CD1 /* HomeVC.swift in Sources */,
 				C74805DA275BAE6E00740288 /* AppDelegate.swift in Sources */,
 				C74805F3275BAE9400740288 /* UPC.swift in Sources */,
-				C74805ED275BAE9400740288 /* UPCAImageGenerator.swift in Sources */,
+				C74805ED275BAE9400740288 /* UPCImageGenerator.swift in Sources */,
 				C74805F5275BAE9400740288 /* EX-String-Subscript.swift in Sources */,
 				C78BFAC0275BB83700CA7F5B /* BarCodeImageView.swift in Sources */,
 				C74805F0275BAE9400740288 /* BarCodeType.swift in Sources */,
+				CE4269372779B8CC00227849 /* UPCE.swift in Sources */,
 				C74805DC275BAE6E00740288 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,7 +464,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE426939277AD53F00227849 /* BarCodeGenerator.swift in Sources */,
+				CE42693A277AD56200227849 /* BarCodeType.swift in Sources */,
+				CE42693C277AD59F00227849 /* BarCodeValidateRegex.swift in Sources */,
+				CE42693B277AD59700227849 /* EAN13.swift in Sources */,
+				CE42693D277AD5B100227849 /* EAN.swift in Sources */,
 				C78BFAA8275BB2A100CA7F5B /* main.swift in Sources */,
+				CE42693E277AD5DC00227849 /* EX-String-Subscript.swift in Sources */,
+				CE426940277AD5FF00227849 /* UPCA.swift in Sources */,
+				CE426941277C401F00227849 /* UPCE.swift in Sources */,
+				CE42693F277AD5E900227849 /* BarCodeError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,14 +485,16 @@
 				C7520FAE275E4E0900798D56 /* UPCA.swift in Sources */,
 				C7520FAF275E4E0900798D56 /* EAN.swift in Sources */,
 				C7520FB82764C4B100798D56 /* EX-CGPath.swift in Sources */,
+				CE426944277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */,
 				C7520FB5275E522F00798D56 /* EX-NSBezierPath-CGPath.swift in Sources */,
 				C7520FA9275E4DF700798D56 /* EX-String-Subscript.swift in Sources */,
 				C7520FA8275E4DEE00798D56 /* BarCodeGenerator.swift in Sources */,
 				C7520FAD275E4E0900798D56 /* UPC.swift in Sources */,
 				C78BFAB5275BB3D600CA7F5B /* ViewController.swift in Sources */,
 				C7520FA4275E4D6600798D56 /* BarCodePathGenerator.swift in Sources */,
-				C7520FA3275E46DE00798D56 /* UPCAImageGenerator.swift in Sources */,
+				C7520FA3275E46DE00798D56 /* UPCImageGenerator.swift in Sources */,
 				C7D6C152276F24E300762CD1 /* BarCodeFont.swift in Sources */,
+				CE426947277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */,
 				C7520FA5275E4DEA00798D56 /* BarCodeError.swift in Sources */,
 				C7520FAC275E4E0900798D56 /* EAN13.swift in Sources */,
 				C7520FAB275E4E0200798D56 /* BarCodeValidateRegex.swift in Sources */,
@@ -465,6 +504,7 @@
 				C7520FAA275E4E0200798D56 /* Luhn.swift in Sources */,
 				C7520FB0275E4E0900798D56 /* GS1Code.swift in Sources */,
 				C7520FBA2764F4BD00798D56 /* EX-NSImage.swift in Sources */,
+				CE4269382779B8CC00227849 /* UPCE.swift in Sources */,
 				C78BFAB3275BB3D600CA7F5B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

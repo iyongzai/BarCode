@@ -14,8 +14,6 @@ public struct BarCodeGenerator {
             return try EAN13.generate(payload: content)
         case .upca(let content):
             return try UPCA.generate(payload: content)
-        case .upce(let content):
-            return try UPCE.generate(payload: content)
         }
     }
     public static func checkDigit(barCodeType: BarCodeType) throws -> Bool {
@@ -24,8 +22,6 @@ public struct BarCodeGenerator {
             return try EAN13.checkDigit(barCode: content)
         case .upca(let content):
             return try UPCA.checkDigit(barCode: content)
-        case .upce(let content):
-            return try UPCE.checkDigit(barCode: content)
         }
     }
 }

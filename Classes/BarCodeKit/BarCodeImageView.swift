@@ -12,8 +12,7 @@ import AppKit
 #endif
 
 class BarCodeImageView: UIView {
-    
-    var barCode: String! {
+    var barCode: BarCodeType! {
         didSet { setNeedsDisplay() }
     }
     var barSize = BarCodeImageSize.upca.scale(4) {
@@ -29,8 +28,18 @@ class BarCodeImageView: UIView {
             return
         }
         
-        
-        guard let path = BarCodePathGenerator.generate(barcode: .upca(barCode), size: barSize, font: font) else {
+        var p: CGPath!
+        switch barCode {
+        case .upca(let barCode):
+            p = BarCodePathGenerator.generate(barcode: .upca(barCode), size: barSize, font: font)
+        case .upce(let barCode):
+            p = BarCodePathGenerator.generate(barcode: .upce(barCode), size: barSize, font: font)
+        case .ean13(_):
+            return
+        case .none:
+            return
+        }
+        guard let path = p else {
             return
         }
         let bezierPath = UIBezierPath(cgPath: path)
