@@ -130,6 +130,7 @@
 		CEC1DCC92742661D00B6CAC4 /* Luhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Luhn.swift; sourceTree = "<group>"; };
 		CEC1DCCB2742666900B6CAC4 /* EAN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAN.swift; sourceTree = "<group>"; };
 		CEC1DCCD2742667600B6CAC4 /* UPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPC.swift; sourceTree = "<group>"; };
+		CEF70FD5277EAE1100C44590 /* Doc.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Doc.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				C78C05B3275B4AD1005DB0DE /* UPC.md */,
+				CEF70FD5277EAE1100C44590 /* Doc.md */,
 				CEC1DCCB2742666900B6CAC4 /* EAN.swift */,
 				C78C05AD275B4962005DB0DE /* EAN13.swift */,
 				C78C05AF275B4986005DB0DE /* EAN8.swift */,
