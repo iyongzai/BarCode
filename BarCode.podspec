@@ -142,7 +142,6 @@ Pod::Spec.new do |s|
   
   # Kit
   s.subspec 'BarCodeKit' do |kit|
-    kit.source_files = 'Classes/BarCodeKit/*.{swift}'
     kit.subspec 'EX' do |kitex|
       kitex.source_files = 'Classes/BarCodeKit/EX/*.{swift}'
       # kitex.frameworks = "UIKit"
@@ -154,7 +153,6 @@ Pod::Spec.new do |s|
   end
   # Foundation
   s.subspec 'BarCodeFoundation' do |foundation|
-    foundation.source_files = 'Classes/BarCodeFoundation/*.{swift}'
     foundation.subspec 'EX' do |foundationex|
       foundationex.source_files = 'Classes/BarCodeFoundation/EX/*.{swift}'
     end
