@@ -14,7 +14,9 @@ import AppKit
 
 
 extension BarCodePathGenerator {
-    static func generateUPCE(_ upce: String, size: BarCodeImageSize, font: BarCodeFont) throws -> CGPath {
+    static func generateUPCE(_ upce: String, conf: BarCodeImageConf) throws -> CGPath {
+        let size = conf.size
+        let font = conf.font
         
         guard BarCodeValidateRegex.upce(upce).isRight else {
             throw BarCodeError.upceFormatInvalid
@@ -91,7 +93,7 @@ extension BarCodePathGenerator {
         var number = 2*Int(size.scale)
         let num = CFNumberCreate(kCFAllocatorDefault, .sInt8Type, &number)
         // 字体 font
-        let exfont: EXFont? = {
+        let BCFont: BCFont? = {
 #if os(iOS)
             switch font {
             case .`default`:
@@ -120,7 +122,7 @@ extension BarCodePathGenerator {
             }
 #endif
         }()
-        guard let showFont = exfont else {
+        guard let showFont = BCFont else {
             return path
         }
         let attributes = [NSAttributedString.Key.font: showFont,
@@ -129,7 +131,8 @@ extension BarCodePathGenerator {
         var textX: CGFloat = (size.quietZoneWidth)-stdFontSize
         
         var attributedString = NSMutableAttributedString(string: upce[0], attributes: attributes)
-        var charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
+//        var charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
+        var charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight))
         path.addPath(charsPath)
         
         // data
@@ -142,7 +145,8 @@ extension BarCodePathGenerator {
         // last number
         textX = x
         attributedString = NSMutableAttributedString(string: upce[7], attributes: attributes)
-        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
+//        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
+        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight))
         path.addPath(charsPath)
         
         return path

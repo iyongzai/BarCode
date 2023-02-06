@@ -73,9 +73,9 @@ class UPCVC: UIViewController {
             return
         case .upca(let upca):
             //image = UPCImageGenerator.generate(upca: "042100005264", size: .upca, font: .default)
-            image = UPCImageGenerator.generate(upca: upca, size: .upca, font: .scaleWithFontName("PingFangSC-Ultralight"))
+            image = UPCImageGenerator.generate(upca: upca, conf: .init(backgroundColor: .white, barColor: .orange, font: .scaleWithFontName("PingFangSC-Ultralight"), size: .upca))
         case .upce(let upce):
-            image = UPCImageGenerator.generate(upce: upce, size: .upca.scale(2), font: .scaleWithFontName("PingFangSC-Ultralight"))
+            image = UPCImageGenerator.generate(upce: upce, conf: .init(backgroundColor: .white, barColor: .orange, font: .scaleWithFontName("PingFangSC-Ultralight"), size: .upca.scale(2)))
         }
         guard image != nil else { return }
         

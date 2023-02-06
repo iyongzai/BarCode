@@ -18,19 +18,25 @@ public class UPCImageGenerator {}
 #if os(iOS)
 public extension UPCImageGenerator {
     @available(iOS 4.0, *)
-    static func generate(upca: String, size: BarCodeImageSize, backgroundColor: UIColor = .white, font: BarCodeFont) -> UIImage? {
+    static func generate(upca: String, conf: BarCodeImageConf) -> UIImage? {
+        guard let cgPath = BarCodePathGenerator.generate(barcode: .upca(upca), conf: conf) else {
+            print("cgPath is nil")
+            return nil
+        }
+        let path = UIBezierPath.init(cgPath: cgPath)
+        path.lineWidth = conf.size.barWidth
         
-        let path = UIBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upca(upca), size: size, font: font)!)
-        path.lineWidth = size.barWidth
-        
-        return generate(path: path, backgroundColor: backgroundColor)
+        return generate(path: path, backgroundColor: conf.backgroundColor)
     }
-    static func generate(upce: String, size: BarCodeImageSize, backgroundColor: UIColor = .white, font: BarCodeFont) -> UIImage? {
+    static func generate(upce: String, conf: BarCodeImageConf) -> UIImage? {
+        guard let cgPath = BarCodePathGenerator.generate(barcode: .upce(upce), conf: conf) else {
+            print("cgPath is nil")
+            return nil
+        }
+        let path = UIBezierPath.init(cgPath: cgPath)
+        path.lineWidth = conf.size.barWidth
         
-        let path = UIBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upce(upce), size: size, font: font)!)
-        path.lineWidth = size.barWidth
-        
-        return generate(path: path, backgroundColor: backgroundColor)
+        return generate(path: path, backgroundColor: conf.backgroundColor)
     }
     static func generate(path: UIBezierPath, backgroundColor: UIColor = .white) -> UIImage? {
         let imageSize = path.bounds.size
@@ -55,13 +61,18 @@ public extension UPCImageGenerator {
 #elseif os(macOS)
 public extension UPCImageGenerator {
     @available(macOS 8.0, *)
-    static func generate(upca: String, size: BarCodeImageSize, backgroundColor: NSColor = .white, font: BarCodeFont) -> NSImage {
+    static func generate(upca: String, conf: BarCodeImageConf) -> NSImage! {
         
-        let path = NSBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upca(upca), size: size, font: font)!)
-        path.lineWidth = size.barWidth
+        guard let cgPath = BarCodePathGenerator.generate(barcode: .upca(upca), conf: conf) else {
+            print("cgPath is nil")
+            return nil
+        }
+        let path = NSBezierPath(cgPath: cgPath)
+        path.lineWidth = conf.size.barWidth
         
         let canvas = NSImage(size: path.bounds.size, flipped: true) { rect in
-            backgroundColor.setFill()
+            conf.backgroundColor.setFill()
+            conf.barColor.setStroke()
             rect.fill()
             path.stroke()
             return true
@@ -76,13 +87,18 @@ public extension UPCImageGenerator {
         return canvas
     }
     @available(macOS 8.0, *)
-    static func generate(upce: String, size: BarCodeImageSize, backgroundColor: NSColor = .white, font: BarCodeFont) -> NSImage {
+    static func generate(upce: String, conf: BarCodeImageConf) -> NSImage! {
         
-        let path = NSBezierPath.init(cgPath: BarCodePathGenerator.generate(barcode: .upce(upce), size: size, font: font)!)
-        path.lineWidth = size.barWidth
+        guard let cgPath = BarCodePathGenerator.generate(barcode: .upce(upce), conf: conf) else {
+            print("cgPath is nil")
+            return nil
+        }
+        let path = NSBezierPath(cgPath: cgPath)
+        path.lineWidth = conf.size.barWidth
         
         let canvas = NSImage(size: path.bounds.size, flipped: true) { rect in
-            backgroundColor.setFill()
+            conf.backgroundColor.setFill()
+            conf.barColor.setStroke()
             rect.fill()
             path.stroke()
             return true

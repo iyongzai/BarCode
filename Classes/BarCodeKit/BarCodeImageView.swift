@@ -15,10 +15,7 @@ class BarCodeImageView: UIView {
     var barCode: BarCodeType! {
         didSet { setNeedsDisplay() }
     }
-    var barSize = BarCodeImageSize.upca.scale(4) {
-        didSet { setNeedsDisplay() }
-    }
-    var font = BarCodeFont.scaleWithFontName("PingFangSC-Ultralight") {//BarCodeFont.default {
+    var conf: BarCodeImageConf = .init(backgroundColor: .white, barColor: .black, font: BarCodeFont.scaleWithFontName("PingFangSC-Ultralight"), size: BarCodeImageSize.upca.scale(4)) {
         didSet { setNeedsDisplay() }
     }
     
@@ -31,9 +28,9 @@ class BarCodeImageView: UIView {
         var p: CGPath!
         switch barCode {
         case .upca(let barCode):
-            p = BarCodePathGenerator.generate(barcode: .upca(barCode), size: barSize, font: font)
+            p = BarCodePathGenerator.generate(barcode: .upca(barCode), conf: conf)
         case .upce(let barCode):
-            p = BarCodePathGenerator.generate(barcode: .upce(barCode), size: barSize, font: font)
+            p = BarCodePathGenerator.generate(barcode: .upce(barCode), conf: conf)
         case .ean13(_):
             return
         case .none:
@@ -43,7 +40,7 @@ class BarCodeImageView: UIView {
             return
         }
         let bezierPath = UIBezierPath(cgPath: path)
-        bezierPath.lineWidth = barSize.barWidth
+        bezierPath.lineWidth = conf.size.barWidth
         
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(UIColor.white.cgColor)

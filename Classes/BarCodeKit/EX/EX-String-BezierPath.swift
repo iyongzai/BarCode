@@ -11,7 +11,7 @@ import CoreText
 
 extension String {
     
-    func getBezierPath(font: EXFont, origin: CGPoint = .zero) -> CGPath {
+    func getBezierPath(font: BCFont, origin: CGPoint = .zero) -> CGPath {
 
         let ctFont = CTFontCreateWithName(font.fontName as CFString, font.pointSize, nil)
         let attributed = NSAttributedString(string: self, attributes: [NSAttributedString.Key.font : ctFont])

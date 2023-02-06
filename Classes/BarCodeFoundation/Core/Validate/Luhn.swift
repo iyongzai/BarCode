@@ -20,6 +20,7 @@ public struct Luhn {
         }).reduce(0, +) % 10
         return mod10 == 0 ? "0" : "\(10-mod10)"
     }
+    // https://rosettacode.org/wiki/Luhn_test_of_credit_card_numbers#Swift
     public static func check(_ number: String) -> Bool {
         return number.reversed().enumerated().map({
             let digit = Int(String($0.element))!
