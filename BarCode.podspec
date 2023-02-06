@@ -140,27 +140,26 @@ Pod::Spec.new do |s|
   #s.dependency "SnapKit"
   
   
-  # UIKit
+  # Kit
   s.subspec 'BarCodeKit' do |kit|
     kit.source_files = 'Classes/BarCodeKit/*.{swift}'
-    kit.subspec 'EX' do |ex|
-      ex.source_files = 'Classes/BarCodeKit/EX/*.{swift}'
-      # ex.frameworks = "UIKit"
+    kit.subspec 'EX' do |kitex|
+      kitex.source_files = 'Classes/BarCodeKit/EX/*.{swift}'
+      # kitex.frameworks = "UIKit"
     end
-    kit.subspec 'Core' do |core|
-      core.source_files = 'Classes/BarCodeKit/Core/*.{swift}'
-      # core.frameworks = "UIKit"
+    kit.subspec 'Core' do |kitcore|
+      kitcore.source_files = 'Classes/BarCodeKit/Core/*.{swift}'
+      # kitcore.frameworks = "UIKit"
     end
   end
   # Foundation
   s.subspec 'BarCodeFoundation' do |foundation|
     foundation.source_files = 'Classes/BarCodeFoundation/*.{swift}'
-    foundation.subspec 'EX' do |ex|
-      collectionS.source_files = 'Classes/BarCodeFoundation/EX/*.{swift}'
+    foundation.subspec 'EX' do |foundationex|
+      foundationex.source_files = 'Classes/BarCodeFoundation/EX/*.{swift}'
     end
-    foundation.subspec 'Core' do |core|
-      core.source_files = 'Classes/BarCodeFoundation/Core/*.{swift}'
+    foundation.subspec 'Core' do |foundationcore|
+      foundationcore.source_files = 'Classes/BarCodeFoundation/Core/*.{swift}'
     end
   end
-
 end
