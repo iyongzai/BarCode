@@ -9,7 +9,7 @@ import Foundation
 import CoreText
 
 
-extension String {
+public extension String {
     
     func getBezierPath(font: BCFont, origin: CGPoint = .zero) -> CGPath {
 
@@ -48,7 +48,7 @@ extension String {
 }
 
 
-extension NSAttributedString {
+public extension NSAttributedString {
     func getBezierPath(position: CGPoint) -> CGPath {
 
         let path = CGMutablePath()

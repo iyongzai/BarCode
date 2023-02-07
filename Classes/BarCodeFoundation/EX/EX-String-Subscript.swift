@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     
     //    let str = "1234567890"
     //

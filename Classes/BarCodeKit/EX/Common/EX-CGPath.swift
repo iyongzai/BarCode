@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 
-extension CGPath {
+public extension CGPath {
     func forEach(body: @escaping @convention(block) (CGPathElement) -> Void) {
         typealias Body = @convention(block) (CGPathElement) -> Void
         func callback(info: UnsafeMutableRawPointer?, element: UnsafePointer<CGPathElement>) {
