@@ -1,23 +1,23 @@
 PODS:
-  - BarCode (0.0.2):
-    - BarCode/BarCodeFoundation (= 0.0.2)
-    - BarCode/BarCodeKit (= 0.0.2)
-  - BarCode/BarCodeFoundation (0.0.2):
-    - BarCode/BarCodeFoundation/Core (= 0.0.2)
-    - BarCode/BarCodeFoundation/EX (= 0.0.2)
-  - BarCode/BarCodeFoundation/Core (0.0.2):
-    - BarCode/BarCodeFoundation/Core/BarCode (= 0.0.2)
-    - BarCode/BarCodeFoundation/Core/Define (= 0.0.2)
-    - BarCode/BarCodeFoundation/Core/Validate (= 0.0.2)
-  - BarCode/BarCodeFoundation/Core/BarCode (0.0.2):
+  - BarCode (0.0.3):
+    - BarCode/BarCodeFoundation (= 0.0.3)
+    - BarCode/BarCodeKit (= 0.0.3)
+  - BarCode/BarCodeFoundation (0.0.3):
+    - BarCode/BarCodeFoundation/Core (= 0.0.3)
+    - BarCode/BarCodeFoundation/EX (= 0.0.3)
+  - BarCode/BarCodeFoundation/Core (0.0.3):
+    - BarCode/BarCodeFoundation/Core/BarCode (= 0.0.3)
+    - BarCode/BarCodeFoundation/Core/Define (= 0.0.3)
+    - BarCode/BarCodeFoundation/Core/Validate (= 0.0.3)
+  - BarCode/BarCodeFoundation/Core/BarCode (0.0.3):
     - BarCode/BarCodeFoundation/Core/Define
     - BarCode/BarCodeFoundation/Core/Validate
     - BarCode/BarCodeFoundation/EX
-  - BarCode/BarCodeFoundation/Core/Define (0.0.2)
-  - BarCode/BarCodeFoundation/Core/Validate (0.0.2):
+  - BarCode/BarCodeFoundation/Core/Define (0.0.3)
+  - BarCode/BarCodeFoundation/Core/Validate (0.0.3):
     - BarCode/BarCodeFoundation/Core/Define
-  - BarCode/BarCodeFoundation/EX (0.0.2)
-  - BarCode/BarCodeKit (0.0.2):
+  - BarCode/BarCodeFoundation/EX (0.0.3)
+  - BarCode/BarCodeKit (0.0.3):
     - BarCode/BarCodeFoundation/Core/BarCode
     - BarCode/BarCodeFoundation/Core/Define
     - BarCode/BarCodeFoundation/Core/Validate
@@ -32,8 +32,8 @@ EXTERNAL SOURCES:
     :path: "/Users/user/Documents/Documents_SCMLYINZHIYONG/Codes/BarCode"
 
 SPEC CHECKSUMS:
-  BarCode: de38b46426580e6a98b236952a016086c850dd91
+  BarCode: 254410bcb2c5fb0356c432d18010914407e71ee5
 
-PODFILE CHECKSUM: 1ce96d42e72ce59ecce2aad270c09682fdc65e77
+PODFILE CHECKSUM: 26d3dafab1a48ebf0ba5fe3ebebfe64fe9028fef
 
 COCOAPODS: 1.11.3
