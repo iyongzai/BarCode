@@ -168,26 +168,11 @@ Pod::Spec.new do |s|
 
   # Kit
   s.subspec 'BarCodeKit' do |kit|
-    # kit.ios.source_files = 'Classes/BarCodeKit/Core/Define/*.{swift}'
-    # kit.ios.source_files = 'Classes/BarCodeKit/TestFile.swift'
-    # kit.subspec 'EX' do |kitEx|
-    #   kitEx.ios.source_files = 'Classes/BarCodeKit/EX/Common/*.{swift}'
-    #   kitEx.ios.frameworks = "Foundation", "CoreText", "CoreGraphics"
-    # end
-    kit.subspec 'Core' do |kitCore|
-      # kitCore.ios.source_files = 'Classes/BarCodeKit/Core/*.{swift}'
-      # kitCore.ios.frameworks = "UIKit"
-      kitCore.subspec 'Common' do |kitCoreCommon|
-        kitCoreCommon.ios.source_files = 'Classes/BarCodeKit/Core/Common'
-        kitCoreCommon.ios.frameworks = "UIKit"
-      end
-      # kitCore.subspec 'iOS' do |kitCoreIOS|
-      #   kitCoreIOS.source_files = 'Classes/BarCodeKit/Core/iOS/*.{swift}'
-      #   kitCoreIOS.ios.dependency 'BarCode/BarCodeKit/Core/Define'
-      #   kitCoreIOS.ios.dependency 'BarCode/BarCodeKit/Core/Common'
-      #   kitCoreIOS.ios.dependency 'BarCode/BarCodeFoundation/Core/Define'
-      #   kitCoreIOS.ios.frameworks = "UIKit"
-      # end
-    end
+    kit.ios.source_files = 'Classes/BarCodeKit/EX/Common/*.{swift}', 'Classes/BarCodeKit/Core/Common/*.{swift}', 'Classes/BarCodeKit/Core/iOS/*.{swift}'
+    kit.ios.dependency 'BarCode/BarCodeFoundation/Core/Define'
+    kit.ios.dependency 'BarCode/BarCodeFoundation/Core/Validate'
+    kit.ios.dependency 'BarCode/BarCodeFoundation/Core/BarCode'
+    kit.ios.dependency 'BarCode/BarCodeFoundation/EX'
+    kit.ios.frameworks = "UIKit", "CoreText", "CoreGraphics"
   end
 end
