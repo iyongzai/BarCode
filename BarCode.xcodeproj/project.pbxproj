@@ -268,11 +268,7 @@
 		CEB9866C2990E9CA00CFF400 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */,
-				C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */,
-				CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */,
-				CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */,
-				CEB986742992250C00CFF400 /* Define */,
+				CEB9867F2993371700CFF400 /* Common */,
 				CEB986702991EDE600CFF400 /* macOS */,
 				CEB9866F2991EDDE00CFF400 /* iOS */,
 			);
@@ -319,12 +315,16 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		CEB986742992250C00CFF400 /* Define */ = {
+		CEB9867F2993371700CFF400 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */,
+				C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */,
+				CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */,
+				CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */,
 				CEB986752992250C00CFF400 /* BarCodeImageConf.swift */,
 			);
-			path = Define;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		CEC1DC982741F2B800B6CAC4 = {

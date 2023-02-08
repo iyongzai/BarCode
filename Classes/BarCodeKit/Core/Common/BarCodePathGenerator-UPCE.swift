@@ -1,5 +1,5 @@
 //
-//  BarCodePathGenerator-UPCA.swift
+//  BarCodePathGenerator-UPCE.swift
 //  BarCode
 //
 //  Created by ayong on 2021/12/30.
@@ -13,14 +13,19 @@ import AppKit
 #endif
 
 
-extension BarCodePathGenerator {
-    static func generateUPCA(_ upca: String, conf: BarCodeImageConf) throws -> CGPath {
+public extension BarCodePathGenerator {
+    static func generateUPCE(_ upce: String, conf: BarCodeImageConf) throws -> CGPath {
         let size = conf.size
         let font = conf.font
         
-        guard BarCodeValidateRegex.upca(upca).isRight else {
-            throw BarCodeError.upcaFormatInvalid
+        guard BarCodeValidateRegex.upce(upce).isRight else {
+            throw BarCodeError.upceFormatInvalid
         }
+        var upceObj: UPCE
+        do {
+            upceObj = try UPCE(barCode: upce)
+        } catch let err { throw err }
+
         //let insets = UIEdgeInsets.zero
         let unit = size.barWidth
         let dataBarHeight: CGFloat = size.barHeight
@@ -41,11 +46,13 @@ extension BarCodePathGenerator {
         path.addLine(to: CGPoint(x: x, y: guardLineHeight))
         
         // data 数据部分
-        for (i, elem) in upca.enumerated() {
+        let sixDigits = upceObj.sixDigits
+        let encodingType = upceObj.encodingType
+        for (i, elem) in sixDigits.enumerated() {
             let encodings: UInt8 = {
-                i < 6
+                encodingType[i] == "O"
                 ? try! EANBarCodeEncoding.oddEncoding(for: UInt8(String(elem))!)
-                : try! EANBarCodeEncoding.evenCEncoding(for: UInt8(String(elem))!)
+                : try! EANBarCodeEncoding.evenBEncoding(for: UInt8(String(elem))!)
             }()
             for j in 0..<7 {
                 let barOrSpace = encodings >> (6-j) & 1
@@ -53,28 +60,21 @@ extension BarCodePathGenerator {
                 if barOrSpace != 0 {
                     // 12+CGFloat(7*i)+CGFloat(j)
                     path.move(to: CGPoint(x: x, y: 0))
-                    path.addLine(to: CGPoint(x: x, y: (i == 0 || i == upca.count-1) ? guardLineHeight : dataBarHeight))
+                    path.addLine(to: CGPoint(x: x, y: dataBarHeight))
                 }
             }
-            if i == 5 {
-                // Middle 中间分隔符
-                x += 2*unit
-                path.move(to: CGPoint(x: x, y: 0))
-                path.addLine(to: CGPoint(x: x, y: guardLineHeight))
-                x += 2*unit
-                path.move(to: CGPoint(x: x, y: 0))
-                path.addLine(to: CGPoint(x: x, y: guardLineHeight))
-                x += 1*unit
-            }
         }
-        // End 101(bar-space-bar) 终止符 101
-        x += 1*unit
+        // End 010101(space-bar-space-bar-space-bar) 终止符 010101
+        x += 2*unit
         path.move(to: CGPoint(x: x, y: 0))
         path.addLine(to: CGPoint(x: x, y: guardLineHeight))
         x += 2*unit
         path.move(to: CGPoint(x: x, y: 0))
         path.addLine(to: CGPoint(x: x, y: guardLineHeight))
-        
+        x += 2*unit
+        path.move(to: CGPoint(x: x, y: 0))
+        path.addLine(to: CGPoint(x: x, y: guardLineHeight))
+
         x += 2*unit
         path.move(to: CGPoint(x: x, y: 0))
         
@@ -130,34 +130,59 @@ extension BarCodePathGenerator {
         // first number
         var textX: CGFloat = (size.quietZoneWidth)-stdFontSize
         
-        var attributedString = NSMutableAttributedString(string: upca[0], attributes: attributes)
+        var attributedString = NSMutableAttributedString(string: upce[0], attributes: attributes)
 //        var charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
         var charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight))
         path.addPath(charsPath)
         
-        // left data
-        textX = 19.5*unit
-        attributedString = NSMutableAttributedString(string: upca[1..<6], attributes: attributes)
+        // data
+        textX = 12.5*unit
+        attributedString = NSMutableAttributedString(string: upce[1..<7], attributes: attributes)
         charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight+size.scale))
-        var transform = CGAffineTransform(translationX: (34*unit-charsPath.boundingBox.width)/2, y: 0)
+        let transform = CGAffineTransform(translationX: (41*unit-charsPath.boundingBox.width)/2, y: 0)
         path.addPath(charsPath, transform: transform)
-        
-        // right data
-        textX = 59.5*unit
-        attributedString = NSMutableAttributedString(string: upca[6..<11], attributes: attributes)
-        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight+size.barWidth))
-        transform = CGAffineTransform(translationX: (34*unit-charsPath.boundingBox.width)/2, y: 0)
-        path.addPath(charsPath, transform: transform)
-
-        
+                
         // last number
         textX = x
-        attributedString = NSMutableAttributedString(string: upca[11], attributes: attributes)
+        attributedString = NSMutableAttributedString(string: upce[7], attributes: attributes)
 //        charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight-showFont.capHeight))
         charsPath = attributedString.getBezierPath(position: CGPoint(x: textX, y: dataBarHeight))
         path.addPath(charsPath)
         
         return path
     }
+}
 
+/*
+ | UPC-A check digit | UPC-E parity pattern for UPC-A number system 0 | UPC-E parity pattern for UPC-A number system 1 |
+ | :---------------: | :--------------------------------------------: | :--------------------------------------------: |
+ |         0         |                     EEEOOO                     |                     OOOEEE                     |
+ |         1         |                     EEOEOO                     |                     OOEOEE                     |
+ |         2         |                     EEOOEO                     |                     OOEEOE                     |
+ |         3         |                     EEOOOE                     |                     OOEEEO                     |
+ |         4         |                     EOEEOO                     |                     OEOOEE                     |
+ |         5         |                     EOOEEO                     |                     OEEOOE                     |
+ |         6         |                     EOOOEE                     |                     OEEEOO                     |
+ |         7         |                     EOEOEO                     |                     OEOEOE                     |
+ |         8         |                     EOEOOE                     |                     OEOEEO                     |
+ |         9         |                     EOOEOE                     |                     OEEOEO                     |
+ */
+fileprivate extension UPCE {
+    static var allEncodingsTypes: [UInt8 : [String]] {
+        [0 : ["EEEOOO", "OOOEEE"],
+         1 : ["EEOEOO", "OOEOEE"],
+         2 : ["EEOOEO", "OOEEOE"],
+         3 : ["EEOOOE", "OOEEEO"],
+         4 : ["EOEEOO", "OEOOEE"],
+         5 : ["EOOEEO", "OEEOOE"],
+         6 : ["EOOOEE", "OEEEOO"],
+         7 : ["EOEOEO", "OEOEOE"],
+         8 : ["EOEOOE", "OEOEEO"],
+         9 : ["EOOEOE", "OEEOEO"]]
+    }
+    /// Encoding type. eg: "EEEOOO"
+    var encodingType: String {
+        let types = Self.allEncodingsTypes[UInt8(checkDigit)!]!
+        return types[Int(systemSymbol)!]
+    }
 }

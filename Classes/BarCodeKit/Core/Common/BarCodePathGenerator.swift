@@ -13,14 +13,14 @@ import UIKit
 import AppKit
 #endif
 
-class BarCodePathGenerator {
+public class BarCodePathGenerator {
     
     /// generate path
     /// - Parameters:
     ///   - barcode: barcode
     ///   - conf: include bar width, bar height and so on.
     /// - Returns: path
-    static func generate(barcode: BarCodeType, conf: BarCodeImageConf) -> CGPath? {
+    public static func generate(barcode: BarCodeType, conf: BarCodeImageConf) -> CGPath? {
         switch barcode {
         case .ean13(_):
             return nil
