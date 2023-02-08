@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BarCode"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "BarCode是一个提供各种barcode相关功能的工具开源库"
 
   # This description is used to generate tags and improve search results.

@@ -1,0 +1,6 @@
+framework module BarCode {
+  umbrella header "BarCode-f47119f0-umbrella.h"
+
+  export *
+  module * { export * }
+}

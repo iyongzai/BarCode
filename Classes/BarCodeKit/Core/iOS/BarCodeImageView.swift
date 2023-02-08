@@ -11,15 +11,15 @@ import UIKit
 import AppKit
 #endif
 
-class BarCodeImageView: UIView {
-    var barCode: BarCodeType! {
+public class BarCodeImageView: UIView {
+    public var barCode: BarCodeType! {
         didSet { setNeedsDisplay() }
     }
-    var conf: BarCodeImageConf = .init(backgroundColor: .white, barColor: .black, font: BarCodeFont.scaleWithFontName("PingFangSC-Ultralight"), size: BarCodeImageSize.upca.scale(4)) {
+    public var conf: BarCodeImageConf = .init(backgroundColor: .white, barColor: .black, font: BarCodeFont.scaleWithFontName("PingFangSC-Ultralight"), size: BarCodeImageSize.upca.scale(4)) {
         didSet { setNeedsDisplay() }
     }
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         guard barCode != nil else {
             print("barCode == nil")
             return

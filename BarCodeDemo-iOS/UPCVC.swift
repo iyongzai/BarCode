@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BarCode
 
 enum UPCType {
     case upca

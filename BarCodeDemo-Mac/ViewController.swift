@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import BarCode
 
 class ViewController: NSViewController {
     

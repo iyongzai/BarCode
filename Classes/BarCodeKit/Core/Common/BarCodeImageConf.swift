@@ -24,6 +24,13 @@ public struct BarCodeImageConf {
     public var barColor: BCColor = .black
     public var font: BarCodeFont = .default
     public var size: BarCodeImageSize = .upca
+    
+    public init(backgroundColor: BCColor = .white, barColor: BCColor = .black, font: BarCodeFont = .default, size: BarCodeImageSize = .upca) {
+        self.backgroundColor = backgroundColor
+        self.barColor = barColor
+        self.font = font
+        self.size = size
+    }
 }
 
 public enum BarCodeFont {
@@ -35,7 +42,7 @@ public enum BarCodeFont {
 
 public struct BarCodeImageSize {
     /// standard bar's width and height. 标准尺寸时的条宽(0.936 = 0.013/(1/72.0))和条高(73.44 = 1.02/(1/72.0))
-    static let upca = BarCodeImageSize(barWidth: 0.936, barHeight: 73.44)
+    public static let upca = BarCodeImageSize(barWidth: 0.936, barHeight: 73.44)
     var barWidth: CGFloat
     var barHeight: CGFloat
     var quietZoneWidth: CGFloat { 9.5*barWidth }

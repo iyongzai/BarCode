@@ -7,72 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EB0B91F957F9AC47229CDD9 /* Pods_BarCodeDemo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFA1D51E4B3876326956E48 /* Pods_BarCodeDemo_iOS.framework */; };
+		5C8F1AA4EE830A7DF258C693 /* Pods_BarCodeDemo_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F495A6F4973A92F3EFCEA17 /* Pods_BarCodeDemo_Mac.framework */; };
+		8E941C25B16461D00266796E /* Pods_BarCodeCommandLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A2CE7B8D142B12E46FEEAA /* Pods_BarCodeCommandLine.framework */; };
 		C74805DA275BAE6E00740288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805D9275BAE6E00740288 /* AppDelegate.swift */; };
 		C74805DC275BAE6E00740288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805DB275BAE6E00740288 /* SceneDelegate.swift */; };
 		C74805DE275BAE6E00740288 /* UPCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74805DD275BAE6E00740288 /* UPCVC.swift */; };
 		C74805E1275BAE6E00740288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74805DF275BAE6E00740288 /* Main.storyboard */; };
 		C74805E3275BAE7100740288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74805E2275BAE7100740288 /* Assets.xcassets */; };
 		C74805E6275BAE7100740288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74805E4275BAE7100740288 /* LaunchScreen.storyboard */; };
-		C74805EB275BAE9400740288 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC92742661D00B6CAC4 /* Luhn.swift */; };
-		C74805EC275BAE9400740288 /* BarCodeValidateRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */; };
-		C74805ED275BAE9400740288 /* UPCImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */; };
-		C74805EE275BAE9400740288 /* UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05B1275B49FF005DB0DE /* UPCA.swift */; };
-		C74805EF275BAE9400740288 /* BarCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */; };
-		C74805F0275BAE9400740288 /* BarCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */; };
-		C74805F1275BAE9400740288 /* BarCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556C2742A68400B76983 /* BarCodeProtocol.swift */; };
-		C74805F2275BAE9400740288 /* EAN.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCCB2742666900B6CAC4 /* EAN.swift */; };
-		C74805F3275BAE9400740288 /* UPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCCD2742667600B6CAC4 /* UPC.swift */; };
-		C74805F4275BAE9400740288 /* EAN13.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AD275B4962005DB0DE /* EAN13.swift */; };
-		C74805F5275BAE9400740288 /* EX-String-Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D5568274286CD00B76983 /* EX-String-Subscript.swift */; };
-		C74805F6275BAE9400740288 /* GS1Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C059627493BF8005DB0DE /* GS1Code.swift */; };
-		C74805F7275BAE9400740288 /* EAN8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AF275B4986005DB0DE /* EAN8.swift */; };
-		C74805F8275BAE9400740288 /* BarCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */; };
-		C7520FA3275E46DE00798D56 /* UPCImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */; };
-		C7520FA4275E4D6600798D56 /* BarCodePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */; };
-		C7520FA5275E4DEA00798D56 /* BarCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */; };
-		C7520FA6275E4DEA00798D56 /* BarCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */; };
-		C7520FA7275E4DEA00798D56 /* BarCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556C2742A68400B76983 /* BarCodeProtocol.swift */; };
-		C7520FA8275E4DEE00798D56 /* BarCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */; };
-		C7520FA9275E4DF700798D56 /* EX-String-Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D5568274286CD00B76983 /* EX-String-Subscript.swift */; };
-		C7520FAA275E4E0200798D56 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC92742661D00B6CAC4 /* Luhn.swift */; };
-		C7520FAB275E4E0200798D56 /* BarCodeValidateRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */; };
-		C7520FAC275E4E0900798D56 /* EAN13.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AD275B4962005DB0DE /* EAN13.swift */; };
-		C7520FAD275E4E0900798D56 /* UPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCCD2742667600B6CAC4 /* UPC.swift */; };
-		C7520FAE275E4E0900798D56 /* UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05B1275B49FF005DB0DE /* UPCA.swift */; };
-		C7520FAF275E4E0900798D56 /* EAN.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCCB2742666900B6CAC4 /* EAN.swift */; };
-		C7520FB0275E4E0900798D56 /* GS1Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C059627493BF8005DB0DE /* GS1Code.swift */; };
-		C7520FB1275E4E0900798D56 /* EAN8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AF275B4986005DB0DE /* EAN8.swift */; };
-		C7520FB2275E4FF600798D56 /* EX-String-BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DC95275D01FA00A94900 /* EX-String-BezierPath.swift */; };
-		C7520FB5275E522F00798D56 /* EX-NSBezierPath-CGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7520FB3275E522F00798D56 /* EX-NSBezierPath-CGPath.swift */; };
-		C7520FB72764C4B100798D56 /* EX-CGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7520FB62764C4B100798D56 /* EX-CGPath.swift */; };
-		C7520FB82764C4B100798D56 /* EX-CGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7520FB62764C4B100798D56 /* EX-CGPath.swift */; };
-		C7520FBA2764F4BD00798D56 /* EX-NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7520FB92764F4BD00798D56 /* EX-NSImage.swift */; };
 		C78BFAA8275BB2A100CA7F5B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFAA7275BB2A100CA7F5B /* main.swift */; };
 		C78BFAB3275BB3D600CA7F5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFAB2275BB3D600CA7F5B /* AppDelegate.swift */; };
 		C78BFAB5275BB3D600CA7F5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFAB4275BB3D600CA7F5B /* ViewController.swift */; };
 		C78BFAB7275BB3D700CA7F5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C78BFAB6275BB3D700CA7F5B /* Assets.xcassets */; };
 		C78BFABA275BB3D700CA7F5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C78BFAB8275BB3D700CA7F5B /* Main.storyboard */; };
-		C78BFAC0275BB83700CA7F5B /* BarCodeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFABF275BB83700CA7F5B /* BarCodeImageView.swift */; };
-		C78BFAC2275BC00D00CA7F5B /* BarCodePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */; };
-		C7B3DC96275D01FA00A94900 /* EX-String-BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DC95275D01FA00A94900 /* EX-String-BezierPath.swift */; };
 		C7D6C154277DEAF000762CD1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6C153277DEAF000762CD1 /* HomeVC.swift */; };
-		CE4269372779B8CC00227849 /* UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4269362779B8CC00227849 /* UPCE.swift */; };
-		CE4269382779B8CC00227849 /* UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4269362779B8CC00227849 /* UPCE.swift */; };
-		CE426939277AD53F00227849 /* BarCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */; };
-		CE42693A277AD56200227849 /* BarCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */; };
-		CE42693B277AD59700227849 /* EAN13.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05AD275B4962005DB0DE /* EAN13.swift */; };
-		CE42693C277AD59F00227849 /* BarCodeValidateRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */; };
-		CE42693D277AD5B100227849 /* EAN.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCCB2742666900B6CAC4 /* EAN.swift */; };
-		CE42693E277AD5DC00227849 /* EX-String-Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D5568274286CD00B76983 /* EX-String-Subscript.swift */; };
-		CE42693F277AD5E900227849 /* BarCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */; };
-		CE426940277AD5FF00227849 /* UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C05B1275B49FF005DB0DE /* UPCA.swift */; };
-		CE426941277C401F00227849 /* UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4269362779B8CC00227849 /* UPCE.swift */; };
-		CE426943277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */; };
-		CE426944277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */; };
-		CE426946277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */; };
-		CE426947277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */; };
-		CEB986762992250C00CFF400 /* BarCodeImageConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB986752992250C00CFF400 /* BarCodeImageConf.swift */; };
-		CEB986772992250C00CFF400 /* BarCodeImageConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB986752992250C00CFF400 /* BarCodeImageConf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +37,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0538F76A7B23ECA12EFC1A47 /* Pods-BarCodeDemo-Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarCodeDemo-Mac.release.xcconfig"; path = "Target Support Files/Pods-BarCodeDemo-Mac/Pods-BarCodeDemo-Mac.release.xcconfig"; sourceTree = "<group>"; };
+		0D289A981EAC8863B85BE1FD /* Pods-BarCodeCommandLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarCodeCommandLine.debug.xcconfig"; path = "Target Support Files/Pods-BarCodeCommandLine/Pods-BarCodeCommandLine.debug.xcconfig"; sourceTree = "<group>"; };
+		2715F25935049BCF6892A536 /* Pods-BarCodeDemo-Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarCodeDemo-Mac.debug.xcconfig"; path = "Target Support Files/Pods-BarCodeDemo-Mac/Pods-BarCodeDemo-Mac.debug.xcconfig"; sourceTree = "<group>"; };
+		37E4371EBCC6F3DD7E58CD54 /* Pods-BarCodeDemo-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarCodeDemo-iOS.release.xcconfig"; path = "Target Support Files/Pods-BarCodeDemo-iOS/Pods-BarCodeDemo-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		4F495A6F4973A92F3EFCEA17 /* Pods_BarCodeDemo_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarCodeDemo_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FFA1D51E4B3876326956E48 /* Pods_BarCodeDemo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarCodeDemo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		916A8C560C199C29D4D5D174 /* Pods-BarCodeCommandLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarCodeCommandLine.release.xcconfig"; path = "Target Support Files/Pods-BarCodeCommandLine/Pods-BarCodeCommandLine.release.xcconfig"; sourceTree = "<group>"; };
+		9815F978D592D6805ECC29D1 /* Pods-BarCodeDemo-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarCodeDemo-iOS.debug.xcconfig"; path = "Target Support Files/Pods-BarCodeDemo-iOS/Pods-BarCodeDemo-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B5A2CE7B8D142B12E46FEEAA /* Pods_BarCodeCommandLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarCodeCommandLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74805D7275BAE6E00740288 /* BarCodeDemo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BarCodeDemo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74805D9275BAE6E00740288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C74805DB275BAE6E00740288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,9 +54,6 @@
 		C74805E2275BAE7100740288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C74805E5275BAE7100740288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C74805E7275BAE7100740288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7520FB3275E522F00798D56 /* EX-NSBezierPath-CGPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX-NSBezierPath-CGPath.swift"; sourceTree = "<group>"; };
-		C7520FB62764C4B100798D56 /* EX-CGPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX-CGPath.swift"; sourceTree = "<group>"; };
-		C7520FB92764F4BD00798D56 /* EX-NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX-NSImage.swift"; sourceTree = "<group>"; };
 		C78BFAA5275BB2A100CA7F5B /* BarCodeCommandLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BarCodeCommandLine; sourceTree = BUILT_PRODUCTS_DIR; };
 		C78BFAA7275BB2A100CA7F5B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C78BFAB0275BB3D600CA7F5B /* BarCodeDemo-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BarCodeDemo-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,30 +62,7 @@
 		C78BFAB6275BB3D700CA7F5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C78BFAB9275BB3D700CA7F5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C78BFABB275BB3D700CA7F5B /* BarCodeDemo_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BarCodeDemo_Mac.entitlements; sourceTree = "<group>"; };
-		C78BFABF275BB83700CA7F5B /* BarCodeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeImageView.swift; sourceTree = "<group>"; };
-		C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodePathGenerator.swift; sourceTree = "<group>"; };
-		C78C059627493BF8005DB0DE /* GS1Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS1Code.swift; sourceTree = "<group>"; };
-		C78C05AD275B4962005DB0DE /* EAN13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAN13.swift; sourceTree = "<group>"; };
-		C78C05AF275B4986005DB0DE /* EAN8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAN8.swift; sourceTree = "<group>"; };
-		C78C05B1275B49FF005DB0DE /* UPCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCA.swift; sourceTree = "<group>"; };
-		C78C05B3275B4AD1005DB0DE /* UPC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UPC.md; sourceTree = "<group>"; };
-		C79D5568274286CD00B76983 /* EX-String-Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX-String-Subscript.swift"; sourceTree = "<group>"; };
-		C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeValidateRegex.swift; sourceTree = "<group>"; };
-		C79D556C2742A68400B76983 /* BarCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeProtocol.swift; sourceTree = "<group>"; };
-		C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeGenerator.swift; sourceTree = "<group>"; };
-		C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCImageGenerator.swift; sourceTree = "<group>"; };
-		C7B3DC95275D01FA00A94900 /* EX-String-BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EX-String-BezierPath.swift"; sourceTree = "<group>"; };
 		C7D6C153277DEAF000762CD1 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		CE4269362779B8CC00227849 /* UPCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCE.swift; sourceTree = "<group>"; };
-		CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarCodePathGenerator-UPCA.swift"; sourceTree = "<group>"; };
-		CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarCodePathGenerator-UPCE.swift"; sourceTree = "<group>"; };
-		CEB986752992250C00CFF400 /* BarCodeImageConf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeImageConf.swift; sourceTree = "<group>"; };
-		CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeType.swift; sourceTree = "<group>"; };
-		CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeError.swift; sourceTree = "<group>"; };
-		CEC1DCC92742661D00B6CAC4 /* Luhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Luhn.swift; sourceTree = "<group>"; };
-		CEC1DCCB2742666900B6CAC4 /* EAN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAN.swift; sourceTree = "<group>"; };
-		CEC1DCCD2742667600B6CAC4 /* UPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPC.swift; sourceTree = "<group>"; };
-		CEF70FD5277EAE1100C44590 /* Doc.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Doc.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB0B91F957F9AC47229CDD9 /* Pods_BarCodeDemo_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E941C25B16461D00266796E /* Pods_BarCodeCommandLine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8F1AA4EE830A7DF258C693 /* Pods_BarCodeDemo_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA1223745F8FEFA4DFA2EF57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D289A981EAC8863B85BE1FD /* Pods-BarCodeCommandLine.debug.xcconfig */,
+				916A8C560C199C29D4D5D174 /* Pods-BarCodeCommandLine.release.xcconfig */,
+				2715F25935049BCF6892A536 /* Pods-BarCodeDemo-Mac.debug.xcconfig */,
+				0538F76A7B23ECA12EFC1A47 /* Pods-BarCodeDemo-Mac.release.xcconfig */,
+				9815F978D592D6805ECC29D1 /* Pods-BarCodeDemo-iOS.debug.xcconfig */,
+				37E4371EBCC6F3DD7E58CD54 /* Pods-BarCodeDemo-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF87E870628088C853DE6193 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2CE7B8D142B12E46FEEAA /* Pods_BarCodeCommandLine.framework */,
+				4F495A6F4973A92F3EFCEA17 /* Pods_BarCodeDemo_Mac.framework */,
+				8FFA1D51E4B3876326956E48 /* Pods_BarCodeDemo_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C74805D8275BAE6E00740288 /* BarCodeDemo-iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,148 +151,15 @@
 			path = "BarCodeDemo-Mac";
 			sourceTree = "<group>";
 		};
-		C78C05C7275BA70B005DB0DE /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C78C05C9275BA72D005DB0DE /* BarCodeKit */,
-				C78C05C8275BA714005DB0DE /* BarCodeFoundation */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		C78C05C8275BA714005DB0DE /* BarCodeFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				CEC1DCB62742647700B6CAC4 /* EX */,
-				CEC1DCAB2742647700B6CAC4 /* Core */,
-			);
-			path = BarCodeFoundation;
-			sourceTree = "<group>";
-		};
-		C78C05C9275BA72D005DB0DE /* BarCodeKit */ = {
-			isa = PBXGroup;
-			children = (
-				C7B3DC97275D023E00A94900 /* EX */,
-				CEB9866C2990E9CA00CFF400 /* Core */,
-			);
-			path = BarCodeKit;
-			sourceTree = "<group>";
-		};
-		C79D55702742AE0400B76983 /* Define */ = {
-			isa = PBXGroup;
-			children = (
-				C79D556C2742A68400B76983 /* BarCodeProtocol.swift */,
-				CEC1DCC3274264C200B6CAC4 /* BarCodeType.swift */,
-				CEC1DCC52742651100B6CAC4 /* BarCodeError.swift */,
-			);
-			path = Define;
-			sourceTree = "<group>";
-		};
-		C79D55712742AE1E00B76983 /* BarCode */ = {
-			isa = PBXGroup;
-			children = (
-				C78C05B3275B4AD1005DB0DE /* UPC.md */,
-				CEF70FD5277EAE1100C44590 /* Doc.md */,
-				CEC1DCCB2742666900B6CAC4 /* EAN.swift */,
-				C78C05AD275B4962005DB0DE /* EAN13.swift */,
-				C78C05AF275B4986005DB0DE /* EAN8.swift */,
-				CEC1DCCD2742667600B6CAC4 /* UPC.swift */,
-				C78C05B1275B49FF005DB0DE /* UPCA.swift */,
-				CE4269362779B8CC00227849 /* UPCE.swift */,
-				C78C059627493BF8005DB0DE /* GS1Code.swift */,
-			);
-			path = BarCode;
-			sourceTree = "<group>";
-		};
-		C79D55722742AE5600B76983 /* Validate */ = {
-			isa = PBXGroup;
-			children = (
-				C79D556A2742885800B76983 /* BarCodeValidateRegex.swift */,
-				CEC1DCC92742661D00B6CAC4 /* Luhn.swift */,
-			);
-			path = Validate;
-			sourceTree = "<group>";
-		};
-		C7B3DC97275D023E00A94900 /* EX */ = {
-			isa = PBXGroup;
-			children = (
-				CEB986712991F10600CFF400 /* Common */,
-				CEB9866E2991ED8000CFF400 /* macOS */,
-				CEB9866D2991ED7800CFF400 /* iOS */,
-			);
-			path = EX;
-			sourceTree = "<group>";
-		};
-		CEB9866C2990E9CA00CFF400 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				CEB9867F2993371700CFF400 /* Common */,
-				CEB986702991EDE600CFF400 /* macOS */,
-				CEB9866F2991EDDE00CFF400 /* iOS */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		CEB9866D2991ED7800CFF400 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		CEB9866E2991ED8000CFF400 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				C7520FB3275E522F00798D56 /* EX-NSBezierPath-CGPath.swift */,
-				C7520FB92764F4BD00798D56 /* EX-NSImage.swift */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		CEB9866F2991EDDE00CFF400 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C78BFABF275BB83700CA7F5B /* BarCodeImageView.swift */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		CEB986702991EDE600CFF400 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		CEB986712991F10600CFF400 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				C7B3DC95275D01FA00A94900 /* EX-String-BezierPath.swift */,
-				C7520FB62764C4B100798D56 /* EX-CGPath.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		CEB9867F2993371700CFF400 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				C7A7CF5F275BAC7B00AA4D41 /* UPCImageGenerator.swift */,
-				C78BFAC1275BC00D00CA7F5B /* BarCodePathGenerator.swift */,
-				CE426942277D9B0700227849 /* BarCodePathGenerator-UPCA.swift */,
-				CE426945277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift */,
-				CEB986752992250C00CFF400 /* BarCodeImageConf.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		CEC1DC982741F2B800B6CAC4 = {
 			isa = PBXGroup;
 			children = (
-				C78C05C7275BA70B005DB0DE /* Classes */,
 				C74805D8275BAE6E00740288 /* BarCodeDemo-iOS */,
 				C78BFAA6275BB2A100CA7F5B /* BarCodeCommandLine */,
 				C78BFAB1275BB3D600CA7F5B /* BarCodeDemo-Mac */,
 				CEC1DCA22741F2B800B6CAC4 /* Products */,
+				AA1223745F8FEFA4DFA2EF57 /* Pods */,
+				AF87E870628088C853DE6193 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -348,25 +173,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEC1DCAB2742647700B6CAC4 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				C79D556E2742A6C800B76983 /* BarCodeGenerator.swift */,
-				C79D55702742AE0400B76983 /* Define */,
-				C79D55722742AE5600B76983 /* Validate */,
-				C79D55712742AE1E00B76983 /* BarCode */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		CEC1DCB62742647700B6CAC4 /* EX */ = {
-			isa = PBXGroup;
-			children = (
-				C79D5568274286CD00B76983 /* EX-String-Subscript.swift */,
-			);
-			path = EX;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C74805EA275BAE7100740288 /* Build configuration list for PBXNativeTarget "BarCodeDemo-iOS" */;
 			buildPhases = (
+				C68F5F6679CBB146AE6175F2 /* [CP] Check Pods Manifest.lock */,
 				C74805D3275BAE6E00740288 /* Sources */,
 				C74805D4275BAE6E00740288 /* Frameworks */,
 				C74805D5275BAE6E00740288 /* Resources */,
+				650B28C1A22173581CEAFB39 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -391,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C78BFAA9275BB2A100CA7F5B /* Build configuration list for PBXNativeTarget "BarCodeCommandLine" */;
 			buildPhases = (
+				5C26E65DB3F67AB8FCF8518C /* [CP] Check Pods Manifest.lock */,
 				C78BFAA1275BB2A100CA7F5B /* Sources */,
 				C78BFAA2275BB2A100CA7F5B /* Frameworks */,
 				C78BFAA3275BB2A100CA7F5B /* CopyFiles */,
@@ -408,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C78BFABE275BB3D700CA7F5B /* Build configuration list for PBXNativeTarget "BarCodeDemo-Mac" */;
 			buildPhases = (
+				F8626D65A0ED84A36B56719D /* [CP] Check Pods Manifest.lock */,
 				C78BFAAC275BB3D600CA7F5B /* Sources */,
 				C78BFAAD275BB3D600CA7F5B /* Frameworks */,
 				C78BFAAE275BB3D600CA7F5B /* Resources */,
+				BA1784451C3859B2402CED1D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -484,36 +295,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C26E65DB3F67AB8FCF8518C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BarCodeCommandLine-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		650B28C1A22173581CEAFB39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BarCodeDemo-iOS/Pods-BarCodeDemo-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BarCodeDemo-iOS/Pods-BarCodeDemo-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BarCodeDemo-iOS/Pods-BarCodeDemo-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA1784451C3859B2402CED1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BarCodeDemo-Mac/Pods-BarCodeDemo-Mac-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BarCodeDemo-Mac/Pods-BarCodeDemo-Mac-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BarCodeDemo-Mac/Pods-BarCodeDemo-Mac-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C68F5F6679CBB146AE6175F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BarCodeDemo-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8626D65A0ED84A36B56719D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BarCodeDemo-Mac-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C74805D3275BAE6E00740288 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74805EF275BAE9400740288 /* BarCodeGenerator.swift in Sources */,
-				C74805F7275BAE9400740288 /* EAN8.swift in Sources */,
-				C74805EE275BAE9400740288 /* UPCA.swift in Sources */,
-				C74805EB275BAE9400740288 /* Luhn.swift in Sources */,
-				CE426943277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */,
-				C74805F4275BAE9400740288 /* EAN13.swift in Sources */,
-				C7B3DC96275D01FA00A94900 /* EX-String-BezierPath.swift in Sources */,
-				C7520FB72764C4B100798D56 /* EX-CGPath.swift in Sources */,
 				C74805DE275BAE6E00740288 /* UPCVC.swift in Sources */,
-				C74805F2275BAE9400740288 /* EAN.swift in Sources */,
-				C78BFAC2275BC00D00CA7F5B /* BarCodePathGenerator.swift in Sources */,
-				C74805F8275BAE9400740288 /* BarCodeError.swift in Sources */,
-				CEB986762992250C00CFF400 /* BarCodeImageConf.swift in Sources */,
-				CE426946277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */,
-				C74805F1275BAE9400740288 /* BarCodeProtocol.swift in Sources */,
-				C74805F6275BAE9400740288 /* GS1Code.swift in Sources */,
-				C74805EC275BAE9400740288 /* BarCodeValidateRegex.swift in Sources */,
 				C7D6C154277DEAF000762CD1 /* HomeVC.swift in Sources */,
 				C74805DA275BAE6E00740288 /* AppDelegate.swift in Sources */,
-				C74805F3275BAE9400740288 /* UPC.swift in Sources */,
-				C74805ED275BAE9400740288 /* UPCImageGenerator.swift in Sources */,
-				C74805F5275BAE9400740288 /* EX-String-Subscript.swift in Sources */,
-				C78BFAC0275BB83700CA7F5B /* BarCodeImageView.swift in Sources */,
-				C74805F0275BAE9400740288 /* BarCodeType.swift in Sources */,
-				CE4269372779B8CC00227849 /* UPCE.swift in Sources */,
 				C74805DC275BAE6E00740288 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,16 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE426939277AD53F00227849 /* BarCodeGenerator.swift in Sources */,
-				CE42693A277AD56200227849 /* BarCodeType.swift in Sources */,
-				CE42693C277AD59F00227849 /* BarCodeValidateRegex.swift in Sources */,
-				CE42693B277AD59700227849 /* EAN13.swift in Sources */,
-				CE42693D277AD5B100227849 /* EAN.swift in Sources */,
 				C78BFAA8275BB2A100CA7F5B /* main.swift in Sources */,
-				CE42693E277AD5DC00227849 /* EX-String-Subscript.swift in Sources */,
-				CE426940277AD5FF00227849 /* UPCA.swift in Sources */,
-				CE426941277C401F00227849 /* UPCE.swift in Sources */,
-				CE42693F277AD5E900227849 /* BarCodeError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,31 +422,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7520FB1275E4E0900798D56 /* EAN8.swift in Sources */,
-				C7520FAE275E4E0900798D56 /* UPCA.swift in Sources */,
-				C7520FAF275E4E0900798D56 /* EAN.swift in Sources */,
-				C7520FB82764C4B100798D56 /* EX-CGPath.swift in Sources */,
-				CE426944277D9B0700227849 /* BarCodePathGenerator-UPCA.swift in Sources */,
-				C7520FB5275E522F00798D56 /* EX-NSBezierPath-CGPath.swift in Sources */,
-				C7520FA9275E4DF700798D56 /* EX-String-Subscript.swift in Sources */,
-				C7520FA8275E4DEE00798D56 /* BarCodeGenerator.swift in Sources */,
-				C7520FAD275E4E0900798D56 /* UPC.swift in Sources */,
 				C78BFAB5275BB3D600CA7F5B /* ViewController.swift in Sources */,
-				C7520FA4275E4D6600798D56 /* BarCodePathGenerator.swift in Sources */,
-				C7520FA3275E46DE00798D56 /* UPCImageGenerator.swift in Sources */,
-				CE426947277D9D4D00227849 /* BarCodePathGenerator-UPCE.swift in Sources */,
-				C7520FA5275E4DEA00798D56 /* BarCodeError.swift in Sources */,
-				C7520FAC275E4E0900798D56 /* EAN13.swift in Sources */,
-				C7520FAB275E4E0200798D56 /* BarCodeValidateRegex.swift in Sources */,
-				C7520FA7275E4DEA00798D56 /* BarCodeProtocol.swift in Sources */,
-				C7520FB2275E4FF600798D56 /* EX-String-BezierPath.swift in Sources */,
-				C7520FA6275E4DEA00798D56 /* BarCodeType.swift in Sources */,
-				C7520FAA275E4E0200798D56 /* Luhn.swift in Sources */,
-				C7520FB0275E4E0900798D56 /* GS1Code.swift in Sources */,
-				C7520FBA2764F4BD00798D56 /* EX-NSImage.swift in Sources */,
-				CE4269382779B8CC00227849 /* UPCE.swift in Sources */,
 				C78BFAB3275BB3D600CA7F5B /* AppDelegate.swift in Sources */,
-				CEB986772992250C00CFF400 /* BarCodeImageConf.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +459,7 @@
 /* Begin XCBuildConfiguration section */
 		C74805E8275BAE7100740288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9815F978D592D6805ECC29D1 /* Pods-BarCodeDemo-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -614,7 +475,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+					"@executable_path/BarCode-9911e841/",
+					"@executable_path/BarCode-aa0d81ae/",
+					"@executable_path/BarCode-f47119f0/",
+					"@executable_path/Pods-BarCodeCommandLine/",
+					"@executable_path/Pods-BarCodeDemo-Mac/",
+					"@executable_path/Pods-BarCodeDemo-iOS/",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ayong.BarCodeDemo-iOS";
@@ -628,6 +496,7 @@
 		};
 		C74805E9275BAE7100740288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37E4371EBCC6F3DD7E58CD54 /* Pods-BarCodeDemo-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -643,7 +512,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+					"@executable_path/BarCode-9911e841/",
+					"@executable_path/BarCode-aa0d81ae/",
+					"@executable_path/BarCode-f47119f0/",
+					"@executable_path/Pods-BarCodeCommandLine/",
+					"@executable_path/Pods-BarCodeDemo-Mac/",
+					"@executable_path/Pods-BarCodeDemo-iOS/",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ayong.BarCodeDemo-iOS";
@@ -658,8 +534,20 @@
 		};
 		C78BFAAA275BB2A100CA7F5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D289A981EAC8863B85BE1FD /* Pods-BarCodeCommandLine.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+					"@executable_path/BarCode-9911e841/",
+					"@executable_path/BarCode-aa0d81ae/",
+					"@executable_path/BarCode-f47119f0/",
+					"@executable_path/Pods-BarCodeCommandLine/",
+					"@executable_path/Pods-BarCodeDemo-Mac/",
+					"@executable_path/Pods-BarCodeDemo-iOS/",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -668,8 +556,20 @@
 		};
 		C78BFAAB275BB2A100CA7F5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 916A8C560C199C29D4D5D174 /* Pods-BarCodeCommandLine.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+					"@executable_path/BarCode-9911e841/",
+					"@executable_path/BarCode-aa0d81ae/",
+					"@executable_path/BarCode-f47119f0/",
+					"@executable_path/Pods-BarCodeCommandLine/",
+					"@executable_path/Pods-BarCodeDemo-Mac/",
+					"@executable_path/Pods-BarCodeDemo-iOS/",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -678,6 +578,7 @@
 		};
 		C78BFABC275BB3D700CA7F5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2715F25935049BCF6892A536 /* Pods-BarCodeDemo-Mac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -692,6 +593,13 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+					"@executable_path/BarCode-9911e841/",
+					"@executable_path/BarCode-aa0d81ae/",
+					"@executable_path/BarCode-f47119f0/",
+					"@executable_path/Pods-BarCodeCommandLine/",
+					"@executable_path/Pods-BarCodeDemo-Mac/",
+					"@executable_path/Pods-BarCodeDemo-iOS/",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
@@ -704,6 +612,7 @@
 		};
 		C78BFABD275BB3D700CA7F5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0538F76A7B23ECA12EFC1A47 /* Pods-BarCodeDemo-Mac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -718,6 +627,13 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+					"@executable_path/BarCode-9911e841/",
+					"@executable_path/BarCode-aa0d81ae/",
+					"@executable_path/BarCode-f47119f0/",
+					"@executable_path/Pods-BarCodeCommandLine/",
+					"@executable_path/Pods-BarCodeDemo-Mac/",
+					"@executable_path/Pods-BarCodeDemo-iOS/",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
