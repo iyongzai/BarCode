@@ -71,7 +71,7 @@ Pod::Spec.new do |s|
 
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
-  # s.osx.deployment_target = "10.9"
+  s.osx.deployment_target = "10.13"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
@@ -144,24 +144,24 @@ Pod::Spec.new do |s|
   # Foundation
   s.subspec 'BarCodeFoundation' do |foundation|
     foundation.subspec 'EX' do |foundationEx|
-      foundationEx.ios.source_files = 'Classes/BarCodeFoundation/EX/*.{swift}'
+      foundationEx.source_files = 'Classes/BarCodeFoundation/EX/*.{swift}'
       foundationEx.frameworks = "Foundation"
     end
     foundation.subspec 'Core' do |foundationCore|
-      foundationCore.ios.source_files = 'Classes/BarCodeFoundation/Core/*.{swift}'
+      foundationCore.source_files = 'Classes/BarCodeFoundation/Core/*.{swift}'
       foundationCore.frameworks = "Foundation"
       foundationCore.subspec 'Define' do |foundationCoreDefine|
-        foundationCoreDefine.ios.source_files = 'Classes/BarCodeFoundation/Core/Define/*.{swift}'
+        foundationCoreDefine.source_files = 'Classes/BarCodeFoundation/Core/Define/*.{swift}'
       end
       foundationCore.subspec 'Validate' do |foundationCoreValidate|
-        foundationCoreValidate.ios.source_files = 'Classes/BarCodeFoundation/Core/Validate/*.{swift}'
-        foundationCoreValidate.ios.dependency 'BarCode/BarCodeFoundation/Core/Define'
+        foundationCoreValidate.source_files = 'Classes/BarCodeFoundation/Core/Validate/*.{swift}'
+        foundationCoreValidate.dependency 'BarCode/BarCodeFoundation/Core/Define'
       end
       foundationCore.subspec 'BarCode' do |foundationCoreBarCode|
-        foundationCoreBarCode.ios.source_files = 'Classes/BarCodeFoundation/Core/BarCode/*.{swift}'
-        foundationCoreBarCode.ios.dependency 'BarCode/BarCodeFoundation/Core/Define'
-        foundationCoreBarCode.ios.dependency 'BarCode/BarCodeFoundation/Core/Validate'
-        foundationCoreBarCode.ios.dependency 'BarCode/BarCodeFoundation/EX'
+        foundationCoreBarCode.source_files = 'Classes/BarCodeFoundation/Core/BarCode/*.{swift}'
+        foundationCoreBarCode.dependency 'BarCode/BarCodeFoundation/Core/Define'
+        foundationCoreBarCode.dependency 'BarCode/BarCodeFoundation/Core/Validate'
+        foundationCoreBarCode.dependency 'BarCode/BarCodeFoundation/EX'
       end
     end
   end
@@ -169,10 +169,12 @@ Pod::Spec.new do |s|
   # Kit
   s.subspec 'BarCodeKit' do |kit|
     kit.ios.source_files = 'Classes/BarCodeKit/EX/Common/*.{swift}', 'Classes/BarCodeKit/Core/Common/*.{swift}', 'Classes/BarCodeKit/Core/iOS/*.{swift}'
-    kit.ios.dependency 'BarCode/BarCodeFoundation/Core/Define'
-    kit.ios.dependency 'BarCode/BarCodeFoundation/Core/Validate'
-    kit.ios.dependency 'BarCode/BarCodeFoundation/Core/BarCode'
-    kit.ios.dependency 'BarCode/BarCodeFoundation/EX'
+    kit.osx.source_files = 'Classes/BarCodeKit/EX/Common/*.{swift}', 'Classes/BarCodeKit/EX/macOS/*.{swift}', 'Classes/BarCodeKit/Core/Common/*.{swift}'
+    kit.dependency 'BarCode/BarCodeFoundation/Core/Define'
+    kit.dependency 'BarCode/BarCodeFoundation/Core/Validate'
+    kit.dependency 'BarCode/BarCodeFoundation/Core/BarCode'
+    kit.dependency 'BarCode/BarCodeFoundation/EX'
     kit.ios.frameworks = "UIKit", "CoreText", "CoreGraphics"
+    kit.osx.frameworks = "AppKit", "CoreText", "CoreGraphics"
   end
 end
