@@ -82,8 +82,8 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # s.source       = { :git => "https://github.com/iyongzai/BarCode.git", :tag => s.version }
-  s.source       = { :git => "https://github.com/iyongzai/BarCode.git", :branch => "main" }
+  s.source       = { :git => "https://github.com/iyongzai/BarCode.git", :tag => s.version }
+  # s.source       = { :git => "https://github.com/iyongzai/BarCode.git", :branch => "main" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
